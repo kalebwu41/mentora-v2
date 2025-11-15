@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0b1f3a;
+  background-color: #f8fafc;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8ffff 0%, #f1f5f9 100%);
+}
+
+.glass-panel {
+  @apply rounded-3xl bg-white/80 backdrop-blur border border-white/60 shadow-soft;
+}
+
+.pill {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-mentora-sand text-mentora-navy;
+}
+
+.badge {
+  @apply text-xs font-semibold uppercase tracking-wider;
+}
+
+.page-grid {
+  @apply grid gap-6 lg:grid-cols-12;
+}
