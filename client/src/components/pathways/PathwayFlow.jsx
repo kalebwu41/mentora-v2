@@ -181,3 +181,5 @@ export default function PathwayFlow({ pathway, onComplete }) {
       )}
     </div>
   );
+
+}
