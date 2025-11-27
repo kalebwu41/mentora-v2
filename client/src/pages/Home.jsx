@@ -29,7 +29,7 @@ export default function Home() {
     <div className="space-y-12">
       <section className="grid gap-10 lg:grid-cols-2 section">
         <div className="space-y-6">
-          <Chip label="YC-grade EdTech" icon="✨" tone="sand" />
+          <Chip label="Built for modern EdTech" icon="✨" tone="sand" />
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-mentora-primary">
             Build a career blueprint with mentors, AI, and action.
           </h1>
