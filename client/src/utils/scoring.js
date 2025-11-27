@@ -11,7 +11,7 @@ export function computeRoadmapScore({ passions = [], strengths = [], habits = 0,
 
   return {
     normalized,
-    color: normalized > 80 ? 'text-mentora-teal' : normalized > 60 ? 'text-amber-500' : 'text-rose-500',
+    color: normalized > 80 ? 'text-mentora-accent' : normalized > 60 ? 'text-amber-500' : 'text-rose-500',
     narrative:
       normalized > 80
         ? 'Momentum looks strong—Mentora recommends stretching goals + leadership pods.'

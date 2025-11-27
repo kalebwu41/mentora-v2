@@ -39,10 +39,10 @@ export default function ChatInterface({ context, prefill }) {
   return (
     <div className="glass-panel flex h-full flex-col rounded-3xl p-6">
       <div className="mb-4 flex items-center gap-3">
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-mentora-teal/15 text-2xl">🤖</span>
+        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-mentora-accent/15 text-2xl">🤖</span>
         <div>
-          <p className="text-lg font-semibold">Mentora Coach</p>
-          <p className="text-xs uppercase tracking-wide text-mentora-navy/60">Context-aware guidance</p>
+          <p className="text-lg font-semibold text-mentora-primary">Mentora Coach</p>
+          <p className="text-xs uppercase tracking-wide text-mentora-muted">Context-aware guidance</p>
         </div>
       </div>
 
@@ -56,8 +56,8 @@ export default function ChatInterface({ context, prefill }) {
           >
             <div
               className={`rounded-3xl px-4 py-3 text-sm shadow-sm ${
-                message.role === 'student' ? 'bg-mentora-teal text-white rounded-br-sm' : 'bg-white/80 text-mentora-navy rounded-bl-sm'
-              }`}
+                  message.role === 'student' ? 'bg-mentora-accent text-white rounded-br-sm' : 'bg-white/80 text-mentora-primary rounded-bl-sm'
+                }`}
             >
               {message.text}
             </div>
@@ -69,9 +69,9 @@ export default function ChatInterface({ context, prefill }) {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
-              className="flex items-center gap-2 text-sm text-mentora-navy/60"
+                className="flex items-center gap-2 text-sm text-mentora-muted"
             >
-              <Loader2 className="h-4 w-4 animate-spin text-mentora-teal" />
+                <Loader2 className="h-4 w-4 animate-spin text-mentora-accent" />
               Mentor is typing…
             </motion.div>
           )}
@@ -80,14 +80,14 @@ export default function ChatInterface({ context, prefill }) {
 
       <form onSubmit={handleSend} className="mt-4 flex items-center gap-3">
         <input
-          className="flex-1 rounded-3xl border border-mentora-navy/10 bg-white/80 px-4 py-3 text-sm focus:border-mentora-teal focus:outline-none"
+            className="flex-1 rounded-3xl border border-mentora-primary/10 bg-white/80 px-4 py-3 text-sm focus:border-mentora-accent focus:outline-none"
           placeholder="Reflect, ask for tactics, or debrief a Pod moment…"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
         />
         <button
           type="submit"
-          className="flex items-center gap-2 rounded-full bg-mentora-navy px-5 py-3 text-sm font-semibold text-white hover:bg-mentora-teal"
+            className="flex items-center gap-2 rounded-full btn"
         >
           <Sparkles size={16} /> Send
         </button>

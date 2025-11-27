@@ -20,7 +20,7 @@ export default function Modal({ open, onClose, title, children }) {
               <h3 className="text-lg font-semibold">{title}</h3>
               <button
                 onClick={onClose}
-                className="rounded-full border border-mentora-navy/10 px-3 py-1 text-xs font-semibold text-mentora-navy/70"
+                className="rounded-full border border-mentora-primary/10 px-3 py-1 text-xs font-semibold text-mentora-muted"
               >
                 Close
               </button>

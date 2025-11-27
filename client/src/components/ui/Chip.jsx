@@ -7,9 +7,11 @@ export default function Chip({ label, icon, tone = 'teal', onClick }) {
       onClick={onClick}
       className={clsx(
         'inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold transition',
-        tone === 'teal' && 'bg-mentora-teal/15 text-mentora-teal hover:bg-mentora-teal/25',
-        tone === 'navy' && 'bg-mentora-navy/10 text-mentora-navy hover:bg-mentora-navy/20',
-        tone === 'sand' && 'bg-mentora-sand text-mentora-navy hover:bg-mentora-sand/80',
+        tone === 'teal' && 'bg-mentora-accent/15 text-mentora-accent hover:bg-mentora-accent/25',
+        tone === 'navy' && 'bg-mentora-primary/10 text-mentora-primary hover:bg-mentora-primary/20',
+        tone === 'sand' && 'bg-white text-mentora-primary hover:bg-gray-50',
+        tone === 'accent' && 'bg-mentora-accent/15 text-mentora-accent',
+        tone === 'primary' && 'bg-mentora-primary/10 text-mentora-primary',
       )}
     >
       {icon && <span>{icon}</span>}

@@ -27,30 +27,30 @@ const pillars = [
 export default function Home() {
   return (
     <div className="space-y-12">
-      <section className="grid gap-10 lg:grid-cols-2">
+      <section className="grid gap-10 lg:grid-cols-2 section">
         <div className="space-y-6">
           <Chip label="YC-grade EdTech" icon="✨" tone="sand" />
-          <h1 className="text-4xl font-semibold text-mentora-navy">
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-mentora-primary">
             Build a career blueprint with mentors, AI, and action.
           </h1>
-          <p className="text-lg text-mentora-navy/70">
+          <p className="text-lg text-mentora-muted">
             Mentora blends AI copilots with human Pods so every student can explore industries, design Pathaways, and stay accountable on a multi-year journey.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               to="/roadmap"
-              className="inline-flex items-center gap-2 rounded-full bg-mentora-navy px-6 py-3 text-sm font-semibold text-white shadow-soft hover:bg-mentora-teal"
+              className="inline-flex items-center gap-2 rounded-full btn"
             >
               Launch AI Roadmap <ArrowRight size={16} />
             </Link>
-            <Link to="/dashboard" className="inline-flex items-center gap-2 text-sm font-semibold text-mentora-navy/70">
+            <Link to="/dashboard" className="inline-flex items-center gap-2 text-sm font-semibold text-mentora-muted">
               View Student Dashboard <Compass size={16} />
             </Link>
           </div>
         </div>
         <div className="grid gap-4">
           <div className="glass-panel rounded-3xl p-6">
-            <p className="text-sm font-semibold text-mentora-teal">Live Pulse</p>
+            <p className="text-sm font-semibold text-mentora-accent">Live Pulse</p>
             <p className="mt-1 text-2xl font-semibold">Mentora coaches flowing from Pods → Pathaways.</p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {heroStats.map((stat) => (
@@ -60,10 +60,10 @@ export default function Home() {
           </div>
           <div className="glass-panel flex flex-wrap items-center justify-between gap-4 rounded-3xl p-6">
             <div>
-              <p className="text-sm font-semibold text-mentora-teal">Trusted by ambitious schools</p>
+              <p className="text-sm font-semibold text-mentora-accent">Trusted by ambitious schools</p>
               <p className="text-lg font-semibold">“Mentora feels like a chief-of-staff for every student.”</p>
             </div>
-            <Sparkles className="text-mentora-teal" size={36} />
+            <Sparkles className="text-mentora-accent" size={36} />
           </div>
         </div>
       </section>
@@ -71,8 +71,8 @@ export default function Home() {
       <section className="grid gap-6 md:grid-cols-3">
         {pillars.map((pillar) => (
           <div key={pillar.title} className="glass-panel h-full rounded-3xl p-6">
-            <p className="text-xs uppercase tracking-wide text-mentora-teal">{pillar.title}</p>
-            <p className="mt-2 text-sm text-mentora-navy/70">{pillar.body}</p>
+            <p className="text-xs uppercase tracking-wide text-mentora-accent">{pillar.title}</p>
+            <p className="mt-2 text-sm text-mentora-muted">{pillar.body}</p>
           </div>
         ))}
       </section>

@@ -38,39 +38,39 @@ export default function PersonaForm({ onSubmit, loading }) {
   return (
     <form onSubmit={handleSubmit} className="glass-panel space-y-6 rounded-3xl p-6">
       <div>
-        <p className="text-sm font-semibold text-mentora-teal">Step {step}/2</p>
-        <h2 className="text-xl font-semibold text-mentora-navy">Tell Mentora where you are right now</h2>
+        <p className="text-sm font-semibold text-mentora-accent">Step {step}/2</p>
+        <h2 className="text-xl font-semibold text-mentora-primary">Tell Mentora where you are right now</h2>
       </div>
 
       {step === 1 && (
         <div className="space-y-4">
-          <label className="block text-sm font-semibold text-mentora-navy/70">
+          <label className="block text-sm font-semibold text-mentora-muted">
             Preferred name
             <input
-              className="mt-2 w-full rounded-2xl border border-mentora-navy/10 bg-white/80 px-4 py-3 focus:border-mentora-teal focus:outline-none"
+              className="mt-2 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-4 py-3 focus:border-mentora-accent focus:outline-none"
               value={form.name}
               onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
             />
           </label>
-          <label className="block text-sm font-semibold text-mentora-navy/70">
+          <label className="block text-sm font-semibold text-mentora-muted">
             Grade level
             <input
               type="number"
               min={9}
               max={12}
-              className="mt-2 w-full rounded-2xl border border-mentora-navy/10 bg-white/80 px-4 py-3 focus:border-mentora-teal focus:outline-none"
+              className="mt-2 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-4 py-3 focus:border-mentora-accent focus:outline-none"
               value={form.gradeLevel}
               onChange={(e) => setForm((prev) => ({ ...prev, gradeLevel: Number(e.target.value) }))}
             />
           </label>
           <div>
-            <p className="text-sm font-semibold text-mentora-navy/70">Passions</p>
+            <p className="text-sm font-semibold text-mentora-muted">Passions</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {passionOptions.map((option) => (
-                <Chip
+                  <Chip
                   key={option}
                   label={option}
-                  tone={form.passions.includes(option) ? 'teal' : 'navy'}
+                  tone={form.passions.includes(option) ? 'accent' : 'primary'}
                   onClick={() => toggleItem('passions', option)}
                 />
               ))}
@@ -82,33 +82,33 @@ export default function PersonaForm({ onSubmit, loading }) {
       {step === 2 && (
         <div className="space-y-4">
           <div>
-            <p className="text-sm font-semibold text-mentora-navy/70">Signature strengths</p>
+            <p className="text-sm font-semibold text-mentora-muted">Signature strengths</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {strengthOptions.map((option) => (
                 <Chip
                   key={option}
                   label={option}
-                  tone={form.strengths.includes(option) ? 'teal' : 'navy'}
+                  tone={form.strengths.includes(option) ? 'accent' : 'primary'}
                   onClick={() => toggleItem('strengths', option)}
                 />
               ))}
             </div>
           </div>
-          <label className="block text-sm font-semibold text-mentora-navy/70">
+          <label className="block text-sm font-semibold text-mentora-muted">
             City or region
             <input
-              className="mt-2 w-full rounded-2xl border border-mentora-navy/10 bg-white/80 px-4 py-3 focus:border-mentora-teal focus:outline-none"
+              className="mt-2 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-4 py-3 focus:border-mentora-accent focus:outline-none"
               value={form.region}
               onChange={(e) => setForm((prev) => ({ ...prev, region: e.target.value }))}
             />
           </label>
-          <label className="block text-sm font-semibold text-mentora-navy/70">
+          <label className="block text-sm font-semibold text-mentora-muted">
             Weekly learning habits (0–5)
             <input
               type="number"
               min={0}
               max={5}
-              className="mt-2 w-full rounded-2xl border border-mentora-navy/10 bg-white/80 px-4 py-3 focus:border-mentora-teal focus:outline-none"
+              className="mt-2 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-4 py-3 focus:border-mentora-accent focus:outline-none"
               value={form.habits}
               onChange={(e) => setForm((prev) => ({ ...prev, habits: Number(e.target.value) }))}
             />
@@ -121,7 +121,7 @@ export default function PersonaForm({ onSubmit, loading }) {
           <button
             type="button"
             onClick={() => setStep(1)}
-            className="text-sm font-semibold text-mentora-navy/70 underline-offset-2 hover:underline"
+            className="text-sm font-semibold text-mentora-muted underline-offset-2 hover:underline"
           >
             Back
           </button>
@@ -129,7 +129,7 @@ export default function PersonaForm({ onSubmit, loading }) {
         <button
           type="submit"
           disabled={loading}
-          className="ml-auto rounded-full bg-mentora-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-mentora-teal disabled:opacity-50"
+          className="ml-auto rounded-full btn"
         >
           {loading ? 'Generating...' : step === 1 ? 'Next' : 'Generate Roadmap'}
         </button>

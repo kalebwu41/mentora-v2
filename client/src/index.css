@@ -1,13 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  --primary: #0E3A77;
+  --accent: #1A5FC1;
+  --background: #F7FAFD;
+  --surface: #FFFFFF;
+  --text-dark: #0B1C33;
+  --text-light: #5A6B85;
+  --radius-lg: 20px;
+  --section-vertical: 80px;
+  --container-max: 1200px;
+  --shadow-soft: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+:root {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #0b1f3a;
-  background-color: #f8fafc;
+  color: var(--text-dark);
+  background-color: var(--background);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -15,21 +28,85 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(180deg, #f8ffff 0%, #f1f5f9 100%);
+  background: var(--background);
+  color: var(--text-dark);
+}
+
+/* Layout utilities */
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.section {
+  padding-top: var(--section-vertical);
+  padding-bottom: var(--section-vertical);
+}
+
+/* Cards and surfaces */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
 }
 
 .glass-panel {
-  @apply rounded-3xl bg-white/80 backdrop-blur border border-white/60 shadow-soft;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: var(--shadow-soft);
 }
 
+/* Pills & badges */
 .pill {
-  @apply inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-mentora-sand text-mentora-navy;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: var(--surface);
+  color: var(--primary);
 }
 
 .badge {
-  @apply text-xs font-semibold uppercase tracking-wider;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 .page-grid {
-  @apply grid gap-6 lg:grid-cols-12;
+  display: grid;
+  gap: 24px;
 }
+
+/* Buttons */
+.btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 200ms ease, transform 150ms ease;
+}
+.btn:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid rgba(14,58,119,0.12);
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+
+/* Responsive helpers */
+@media (max-width: 768px) {
+  .section { padding-top: 24px; padding-bottom: 24px; }
+  .btn { width: 100%; display: block; }
+}
+

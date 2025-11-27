@@ -23,10 +23,10 @@ export default function PodComposer({ pods, onPublish }) {
       animate={{ opacity: 1, y: 0 }}
     >
       <div className="flex flex-col gap-3 md:flex-row md:items-center">
-        <label className="text-sm font-semibold text-mentora-navy/70">
+        <label className="text-sm font-semibold text-mentora-muted">
           Pod
           <select
-            className="mt-1 w-full rounded-2xl border border-mentora-navy/10 bg-white/80 px-3 py-2"
+            className="mt-1 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-3 py-2"
             value={draft.podId}
             onChange={(e) => setDraft((prev) => ({ ...prev, podId: e.target.value }))}
           >
@@ -37,10 +37,10 @@ export default function PodComposer({ pods, onPublish }) {
             ))}
           </select>
         </label>
-        <label className="text-sm font-semibold text-mentora-navy/70">
+        <label className="text-sm font-semibold text-mentora-muted">
           Tag
           <select
-            className="mt-1 w-full rounded-2xl border border-mentora-navy/10 bg-white/80 px-3 py-2"
+            className="mt-1 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-3 py-2"
             value={draft.tag}
             onChange={(e) => setDraft((prev) => ({ ...prev, tag: e.target.value }))}
           >
@@ -51,14 +51,14 @@ export default function PodComposer({ pods, onPublish }) {
         </label>
       </div>
       <textarea
-        className="min-h-[120px] w-full rounded-3xl border border-mentora-navy/10 bg-white/80 px-4 py-3 text-sm focus:border-mentora-teal focus:outline-none"
+        className="min-h-[120px] w-full rounded-3xl border border-mentora-primary/10 bg-white/80 px-4 py-3 text-sm focus:border-mentora-accent focus:outline-none"
         placeholder="Ask the pod for critique, share a win, or upload context..."
         value={draft.prompt}
         onChange={(e) => setDraft((prev) => ({ ...prev, prompt: e.target.value }))}
       />
       <button
         type="submit"
-        className="w-full rounded-full bg-mentora-navy py-3 text-sm font-semibold text-white hover:bg-mentora-teal"
+        className="w-full rounded-full btn"
       >
         Publish to Pod
       </button>
