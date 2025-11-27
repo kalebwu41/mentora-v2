@@ -1,42 +1,45 @@
 import { useEffect, useMemo, useState } from 'react';
-import { evaluatePathaway } from '../utils/scoring.js';
 
 export default function usePathaway(pathaway) {
-  const [selections, setSelections] = useState([]);
+  // submissions: array where each item is { files: [...], links: [...], text: '...' }
+  const [submissions, setSubmissions] = useState([]);
 
   useEffect(() => {
-    setSelections([]);
+    setSubmissions([]);
   }, [pathaway.id]);
 
-  const currentStep = pathaway.steps[selections.length];
-  const completed = selections.length === pathaway.steps.length;
+  const currentStep = pathaway.steps[submissions.length];
+  const completed = submissions.length === pathaway.steps.length;
 
   const summary = useMemo(() => {
     if (!completed) return null;
-    return evaluatePathaway(
-      selections.map((choice, index) => ({
-        title: pathaway.steps[index].title,
-        choice: choice.label,
-        delta: choice.delta,
-        skill: choice.skill,
-      })),
-    );
-  }, [completed, selections, pathaway]);
+    // Basic summary: completion percentage and simple reflection
+    const reflections = submissions.map((s, idx) => ({
+      title: pathaway.steps[idx].title,
+      files: s.files?.length || 0,
+      text: s.text || '',
+    }));
+    return {
+      score: `${Math.round((submissions.length / pathaway.steps.length) * 100)}%`,
+      reflection: `Submitted ${submissions.length} of ${pathaway.steps.length} steps.`,
+      reflections,
+    };
+  }, [completed, submissions, pathaway]);
 
-  function choose(option) {
+  function submitStep(payload) {
     if (completed) return;
-    setSelections((prev) => [...prev, option]);
+    setSubmissions((prev) => [...prev, payload]);
   }
 
   function reset() {
-    setSelections([]);
+    setSubmissions([]);
   }
 
   return {
     currentStep,
-    selections,
+    selections: submissions,
     completed,
-    choose,
+    choose: submitStep,
     summary,
     reset,
   };
