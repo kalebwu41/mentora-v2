@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout.jsx';
+import Landing from './pages/Landing.jsx';
 import Home from './pages/Home.jsx';
 import Roadmap from './pages/Roadmap.jsx';
 import Pathaways from './pages/Pathaways.jsx';
@@ -23,7 +24,8 @@ export default function App() {
     <MainLayout>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/pathaways" element={<Pathaways />} />
         <Route path="/pathway/:id" element={<PathwayDetail />} />
