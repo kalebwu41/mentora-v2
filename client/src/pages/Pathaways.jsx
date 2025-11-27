@@ -26,9 +26,9 @@ export default function Pathaways() {
         ))}
         {latest && (
           <div className="rounded-3xl bg-white/80 p-4 text-sm">
-            <p className="text-xs uppercase tracking-wide text-mentora-teal">Latest score</p>
+            <p className="text-xs uppercase tracking-wide text-mentora-accent">Latest score</p>
             <p className="text-2xl font-bold">{latest.score}</p>
-            <p className="text-sm text-mentora-navy/70">{latest.reflection}</p>
+            <p className="text-sm text-mentora-muted">{latest.reflection}</p>
           </div>
         )}
       </aside>

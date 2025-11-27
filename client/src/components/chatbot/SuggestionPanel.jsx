@@ -16,15 +16,15 @@ const prompts = [
 export default function SuggestionPanel({ onPrompt }) {
   return (
     <div className="glass-panel rounded-3xl p-6 space-y-3">
-      <p className="text-sm font-semibold text-mentora-teal">Try asking</p>
+      <p className="text-sm font-semibold text-mentora-accent">Try asking</p>
       {prompts.map((prompt) => (
         <button
           key={prompt.title}
           onClick={() => onPrompt(prompt.body)}
-          className="w-full rounded-2xl border border-mentora-navy/10 bg-white/70 px-4 py-3 text-left text-sm transition hover:border-mentora-teal"
+          className="w-full rounded-2xl border border-mentora-primary/10 bg-white/70 px-4 py-3 text-left text-sm transition hover:border-mentora-accent"
         >
-          <p className="text-xs uppercase tracking-wide text-mentora-navy/60">{prompt.title}</p>
-          <p className="text-mentora-navy">{prompt.body}</p>
+          <p className="text-xs uppercase tracking-wide text-mentora-muted">{prompt.title}</p>
+          <p className="text-mentora-primary">{prompt.body}</p>
         </button>
       ))}
     </div>

@@ -33,10 +33,10 @@ function TaskBoard() {
   }
 
   return (
-    <div className="rounded-3xl border border-mentora-navy/10 bg-white/80 p-5">
+    <div className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-mentora-teal">Upcoming Actions</p>
-        <p className="text-xs text-mentora-navy/60">Drag to reorder</p>
+        <p className="text-sm font-semibold text-mentora-accent">Upcoming Actions</p>
+        <p className="text-xs text-mentora-muted">Drag to reorder</p>
       </div>
       <ul className="mt-4 space-y-3">
         {tasks.map((task) => (
@@ -46,13 +46,13 @@ function TaskBoard() {
             onDragStart={() => handleDragStart(task.id)}
             onDragOver={(e) => handleDragOver(e, task.id)}
             onDrop={handleDrop}
-            className="rounded-2xl border border-mentora-navy/10 bg-white px-4 py-3 text-sm shadow-sm"
+            className="rounded-2xl border border-mentora-primary/10 bg-white px-4 py-3 text-sm shadow-sm"
           >
             <div className="flex items-center justify-between">
               <p className="font-semibold">{task.label}</p>
-              <span className="text-xs text-mentora-navy/60">{task.targetDate}</span>
+              <span className="text-xs text-mentora-muted">{task.targetDate}</span>
             </div>
-            <p className="text-xs text-mentora-navy/60">
+            <p className="text-xs text-mentora-muted">
               Due: {task.due} · Impact: {task.impact}
             </p>
           </li>
@@ -66,14 +66,14 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div className="grid gap-6 md:grid-cols-[minmax(0,_1.2fr),_360px]">
-        <div className="rounded-3xl border border-mentora-navy/10 bg-white/90 p-6">
-          <p className="text-sm font-semibold text-mentora-teal">Skill Map</p>
+        <div className="rounded-3xl border border-mentora-primary/10 bg-white/90 p-6">
+          <p className="text-sm font-semibold text-mentora-accent">Skill Map</p>
           <div className="mt-4 h-72">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={skillConstellation}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="skill" tick={{ fill: '#0b1f3a', fontSize: 12 }} />
-                <Radar name="Skill Levels" dataKey="score" stroke="#35b0ab" fill="#35b0ab" fillOpacity={0.3} />
+                <PolarAngleAxis dataKey="skill" tick={{ fill: '#0B1C33', fontSize: 12 }} />
+                <Radar name="Skill Levels" dataKey="score" stroke="#1A5FC1" fill="#1A5FC1" fillOpacity={0.3} />
               </RadarChart>
             </ResponsiveContainer>
           </div>
@@ -82,12 +82,12 @@ export default function Dashboard() {
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         {podActivityPeek.map((pod) => (
-          <div key={pod.pod} className="rounded-3xl border border-mentora-navy/10 bg-white/80 p-5">
-            <p className="text-xs uppercase tracking-wide text-mentora-teal">{pod.pod}</p>
-            <p className="mt-2 text-sm text-mentora-navy/70">{pod.highlight}</p>
+          <div key={pod.pod} className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5">
+            <p className="text-xs uppercase tracking-wide text-mentora-accent">{pod.pod}</p>
+            <p className="mt-2 text-sm text-mentora-muted">{pod.highlight}</p>
             <div className="mt-4 flex gap-2 text-2xl">
               {pod.avatars.map((avatar) => (
-                <span key={avatar} className="rounded-2xl bg-mentora-teal/10 px-3 py-1">
+                <span key={avatar} className="rounded-2xl bg-mentora-accent/10 px-3 py-1">
                   {avatar}
                 </span>
               ))}

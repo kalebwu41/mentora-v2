@@ -12,14 +12,16 @@ export default {
       },
       colors: {
         mentora: {
-          teal: '#35b0ab',
-          navy: '#0b1f3a',
-          sky: '#b7f5ef',
-          sand: '#f6efe8',
+          primary: '#0E3A77',
+          accent: '#1A5FC1',
+          background: '#F7FAFD',
+          surface: '#FFFFFF',
+          text: '#0B1C33',
+          muted: '#5A6B85',
         },
       },
       boxShadow: {
-        soft: '0 10px 40px rgba(13, 55, 80, 0.12)',
+        soft: '0 6px 18px rgba(0,0,0,0.06)',
       },
     },
   },
