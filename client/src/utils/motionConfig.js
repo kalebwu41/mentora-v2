@@ -1,4 +1,24 @@
 // Unified motion design system configuration
+
+// Check for reduced-motion preference
+const prefersReducedMotion = () => {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+};
+
+// Duration multiplier based on accessibility preferences
+const getDuration = (baseDuration) => {
+  return prefersReducedMotion() ? baseDuration * 0.2 : baseDuration;
+};
+
+// Disable animations if user prefers reduced motion
+const getTransition = (baseTransition) => {
+  if (prefersReducedMotion()) {
+    return { ...baseTransition, duration: 0 };
+  }
+  return baseTransition;
+};
+
 export const MOTION = {
   // Easing curves
   ease: {
@@ -30,7 +50,7 @@ export const MOTION = {
       initial: { opacity: 0, y: 40 },
       animate: { opacity: 1, y: 0 },
       exit: { opacity: 0, y: -40 },
-      transition: { delay, duration, ease: 'easeOut' },
+      transition: getTransition({ delay, duration: getDuration(duration), ease: 'easeOut' }),
     }),
 
     // Scale pop entrance
@@ -38,7 +58,7 @@ export const MOTION = {
       initial: { opacity: 0, scale: 0.9 },
       animate: { opacity: 1, scale: 1 },
       exit: { opacity: 0, scale: 0.8 },
-      transition: { delay, duration, ease: 'easeOut' },
+      transition: getTransition({ delay, duration: getDuration(duration), ease: 'easeOut' }),
     }),
 
     // Fade only
@@ -46,7 +66,7 @@ export const MOTION = {
       initial: { opacity: 0 },
       animate: { opacity: 1 },
       exit: { opacity: 0 },
-      transition: { delay, duration, ease: 'easeOut' },
+      transition: getTransition({ delay, duration: getDuration(duration), ease: 'easeOut' }),
     }),
 
     // Slide from left
@@ -54,7 +74,7 @@ export const MOTION = {
       initial: { opacity: 0, x: -60 },
       animate: { opacity: 1, x: 0 },
       exit: { opacity: 0, x: -60 },
-      transition: { delay, duration, ease: 'easeOut' },
+      transition: getTransition({ delay, duration: getDuration(duration), ease: 'easeOut' }),
     }),
 
     // Slide from right
@@ -62,7 +82,7 @@ export const MOTION = {
       initial: { opacity: 0, x: 60 },
       animate: { opacity: 1, x: 0 },
       exit: { opacity: 0, x: 60 },
-      transition: { delay, duration, ease: 'easeOut' },
+      transition: getTransition({ delay, duration: getDuration(duration), ease: 'easeOut' }),
     }),
 
     // Page route transition (full layout)

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { podChannels } from '../data/pods.js';
 import PodComposer from '../components/pods/PodComposer.jsx';
 import PodFeed from '../components/pods/PodFeed.jsx';
 import { fetchPodFeed } from '../services/api.js';
+import { SectionTitle, StaggerContainer, MOTION } from '../components/animations/index.js';
 
 export default function Pods() {
   const [feed, setFeed] = useState([]);
@@ -31,26 +33,41 @@ export default function Pods() {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-3">
-        {podChannels.map((pod) => (
-          <div key={pod.id} className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-mentora-accent">{pod.title}</p>
-            <p className="mt-2 text-sm text-mentora-muted">{pod.description}</p>
-            <div className="mt-3 flex flex-wrap gap-2 text-xs text-mentora-muted">
-              {pod.tags.map((tag) => (
-                <span key={tag} className="rounded-full bg-white px-2 py-1 text-mentora-primary/80">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <p className="mt-2 text-xs text-mentora-muted">Activity: {pod.activity}%</p>
-          </div>
-        ))}
-      </div>
-      <div className="grid gap-6 lg:grid-cols-[360px,_1fr]">
+      <SectionTitle title="Pods" subtitle="Learn & grow with your community" />
+      <StaggerContainer staggerDelay={0.08}>
+        <div className="grid gap-4 md:grid-cols-3">
+          {podChannels.map((pod) => (
+            <motion.div
+              key={pod.id}
+              className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+              variants={MOTION.staggerContainer(0).children}
+              whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(0, 0, 0, 0.15)' }}
+            >
+              <p className="text-xs font-semibold uppercase tracking-wide text-mentora-accent">{pod.title}</p>
+              <p className="mt-2 text-sm text-mentora-muted">{pod.description}</p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs text-mentora-muted">
+                {pod.tags.map((tag) => (
+                  <motion.span
+                    key={tag}
+                    className="rounded-full bg-white px-2 py-1 text-mentora-primary/80"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-mentora-muted">Activity: {pod.activity}%</p>
+            </motion.div>
+          ))}
+        </div>
+      </StaggerContainer>
+      <motion.div
+        className="grid gap-6 lg:grid-cols-[360px,_1fr]"
+        {...MOTION.transitions.slideUpFade(0.15)}
+      >
         <PodComposer pods={podChannels} onPublish={handlePublish} />
         <PodFeed feed={feed} />
-      </div>
+      </motion.div>
     </div>
   );
 }
