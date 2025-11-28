@@ -26,8 +26,8 @@ export default function HowItWorks() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-slate-50 to-white">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="w-full py-24 bg-gradient-to-b from-slate-50 to-white">
+      <div className="content-container">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

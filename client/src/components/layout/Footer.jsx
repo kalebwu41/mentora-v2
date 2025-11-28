@@ -11,9 +11,9 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 bg-white">
+    <footer className="w-full border-t border-gray-100 bg-white">
       <motion.div
-        className="container flex w-full flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between"
+        className="w-full flex flex-col gap-6 py-10 px-6 md:flex-row md:items-center md:justify-between"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -51,7 +51,7 @@ export default function Footer() {
               </Link>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </footer>
   );

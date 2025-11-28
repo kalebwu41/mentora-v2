@@ -34,11 +34,42 @@ body {
 
 /* Layout utilities */
 .container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Content container - for constraining readable content */
+.content-container {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+/* Full-width section helper */
+.full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* Wide container for sections */
+.section-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .container,
+  .content-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .section {

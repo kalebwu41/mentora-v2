@@ -7,8 +7,8 @@ export default function CTA() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-br from-mentora-primary/5 to-mentora-accent/5">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="w-full py-24 bg-gradient-to-br from-mentora-primary/5 to-mentora-accent/5">
+      <div className="content-container">
         <motion.div
           className="max-w-3xl mx-auto text-center"
           initial={{ opacity: 0, y: 30 }}
