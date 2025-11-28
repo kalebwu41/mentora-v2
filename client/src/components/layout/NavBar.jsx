@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { MOTION } from '../animations/index.js';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -30,18 +31,34 @@ export default function NavBar() {
               key={href}
               to={href}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${isActive ? 'text-mentora-accent' : 'text-mentora-primary/80 hover:text-mentora-accent'}`
+                `text-sm font-medium transition-colors relative ${isActive ? 'text-mentora-accent' : 'text-mentora-primary/80 hover:text-mentora-accent'}`
               }
             >
-              {label}
+              {({ isActive }) => (
+                <motion.span
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
+                >
+                  {label}
+                  {isActive && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-mentora-accent"
+                      layoutId="activeNav"
+                      transition={{ type: 'spring', stiffness: 400, damping: 60 }}
+                    />
+                  )}
+                </motion.span>
+              )}
             </NavLink>
           ))}
-          <Link
-            to="/profile"
-            className="rounded-full bg-mentora-primary px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-mentora-accent"
-          >
-            Launch Profile
-          </Link>
+          <motion.div whileHover={MOTION.hover.lift} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/profile"
+              className="rounded-full bg-mentora-primary px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-mentora-accent"
+            >
+              Launch Profile
+            </Link>
+          </motion.div>
         </nav>
 
         <button
@@ -62,25 +79,39 @@ export default function NavBar() {
             className="md:hidden"
           >
             <div className="space-y-3 border-t border-gray-100 bg-white px-6 pb-6 pt-4">
-              {navItems.map(({ label, href }) => (
-                <Link
+              {navItems.map(({ label, href }, idx) => (
+                <motion.div
                   key={href}
-                  to={href}
-                  onClick={() => setOpen(false)}
-                  className={`block rounded-xl px-4 py-3 text-sm font-semibold transition ${
-                    pathname === href ? 'bg-mentora-accent/10 text-mentora-accent' : 'text-mentora-primary/80'
-                  }`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ delay: idx * 0.05 }}
                 >
-                  {label}
-                </Link>
+                  <Link
+                    to={href}
+                    onClick={() => setOpen(false)}
+                    className={`block rounded-xl px-4 py-3 text-sm font-semibold transition ${
+                      pathname === href ? 'bg-mentora-accent/10 text-mentora-accent' : 'text-mentora-primary/80'
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                </motion.div>
               ))}
-              <Link
-                to="/profile"
-                onClick={() => setOpen(false)}
-                className="block rounded-2xl bg-mentora-primary px-4 py-3 text-center text-sm font-semibold text-white"
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ delay: navItems.length * 0.05 }}
               >
-                Launch Profile
-              </Link>
+                <Link
+                  to="/profile"
+                  onClick={() => setOpen(false)}
+                  className="block rounded-2xl bg-mentora-primary px-4 py-3 text-center text-sm font-semibold text-white"
+                >
+                  Launch Profile
+                </Link>
+              </motion.div>
             </div>
           </motion.nav>
         )}
