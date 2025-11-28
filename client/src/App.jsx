@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import MainLayout from './components/layout/MainLayout.jsx';
+import { PageTransition } from './components/animations/index.js';
 import Landing from './pages/Landing.jsx';
 import Home from './pages/Home.jsx';
 import Roadmap from './pages/Roadmap.jsx';
@@ -20,21 +22,27 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <MainLayout>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/roadmap" element={<Roadmap />} />
-        <Route path="/pathaways" element={<Pathaways />} />
-        <Route path="/pathway/:id" element={<PathwayDetail />} />
-        <Route path="/pods" element={<Pods />} />
-        <Route path="/chatbot" element={<Chatbot />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <PageTransition key={location.pathname}>
+          <Routes location={location}>
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/roadmap" element={<Roadmap />} />
+            <Route path="/pathaways" element={<Pathaways />} />
+            <Route path="/pathway/:id" element={<PathwayDetail />} />
+            <Route path="/pods" element={<Pods />} />
+            <Route path="/chatbot" element={<Chatbot />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </PageTransition>
+      </AnimatePresence>
     </MainLayout>
   );
 }

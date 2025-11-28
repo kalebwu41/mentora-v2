@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -8,6 +9,8 @@ import {
 } from 'recharts';
 import { skillConstellation, taskQueue, podActivityPeek } from '../data/skills.js';
 import { generateUpcomingTasks } from '../utils/scoring.js';
+import { AnimatedCard, StaggerContainer, SectionTitle } from '../components/animations/index.js';
+import MOTION from '../utils/motionConfig.js';
 
 function TaskBoard() {
   const [tasks, setTasks] = useState(generateUpcomingTasks(taskQueue));
@@ -33,20 +36,26 @@ function TaskBoard() {
   }
 
   return (
-    <div className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5">
+    <motion.div
+      className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+      {...MOTION.transitions.slideUpFade()}
+      whileHover={MOTION.hover.lift}
+    >
       <div className="flex items-center justify-between">
         <p className="text-sm font-semibold text-mentora-accent">Upcoming Actions</p>
         <p className="text-xs text-mentora-muted">Drag to reorder</p>
       </div>
-      <ul className="mt-4 space-y-3">
+      <motion.ul className="mt-4 space-y-3" variants={MOTION.staggerContainer(0.05)} initial="hidden" animate="visible">
         {tasks.map((task) => (
-          <li
+          <motion.li
             key={task.id}
             draggable
             onDragStart={() => handleDragStart(task.id)}
             onDragOver={(e) => handleDragOver(e, task.id)}
             onDrop={handleDrop}
-            className="rounded-2xl border border-mentora-primary/10 bg-white px-4 py-3 text-sm shadow-sm"
+            className="rounded-2xl border border-mentora-primary/10 bg-white px-4 py-3 text-sm shadow-sm cursor-move"
+            variants={MOTION.staggerChild}
+            whileHover={{ x: 4, ...MOTION.hover.shadow }}
           >
             <div className="flex items-center justify-between">
               <p className="font-semibold">{task.label}</p>
@@ -55,20 +64,24 @@ function TaskBoard() {
             <p className="text-xs text-mentora-muted">
               Due: {task.due} · Impact: {task.impact}
             </p>
-          </li>
+          </motion.li>
         ))}
-      </ul>
-    </div>
+      </motion.ul>
+    </motion.div>
   );
 }
 
 export default function Dashboard() {
   return (
     <div className="space-y-6">
+      <SectionTitle>
+        <h1 className="text-3xl font-bold text-mentora-primary">Your Dashboard</h1>
+      </SectionTitle>
+
       <div className="grid gap-6 md:grid-cols-[minmax(0,_1.2fr),_360px]">
-        <div className="rounded-3xl border border-mentora-primary/10 bg-white/90 p-6">
+        <AnimatedCard className="rounded-3xl border border-mentora-primary/10 bg-white/90 p-6">
           <p className="text-sm font-semibold text-mentora-accent">Skill Map</p>
-          <div className="mt-4 h-72">
+          <motion.div className="mt-4 h-72" animate={MOTION.continuous.pulse(3)}>
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={skillConstellation}>
                 <PolarGrid />
@@ -76,25 +89,37 @@ export default function Dashboard() {
                 <Radar name="Skill Levels" dataKey="score" stroke="#1A5FC1" fill="#1A5FC1" fillOpacity={0.3} />
               </RadarChart>
             </ResponsiveContainer>
-          </div>
-        </div>
+          </motion.div>
+        </AnimatedCard>
         <TaskBoard />
       </div>
-      <div className="grid gap-4 md:grid-cols-2">
-        {podActivityPeek.map((pod) => (
-          <div key={pod.pod} className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5">
-            <p className="text-xs uppercase tracking-wide text-mentora-accent">{pod.pod}</p>
-            <p className="mt-2 text-sm text-mentora-muted">{pod.highlight}</p>
-            <div className="mt-4 flex gap-2 text-2xl">
-              {pod.avatars.map((avatar) => (
-                <span key={avatar} className="rounded-2xl bg-mentora-accent/10 px-3 py-1">
-                  {avatar}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+
+      <StaggerContainer delay={0.08}>
+        <div className="grid gap-4 md:grid-cols-2">
+          {podActivityPeek.map((pod) => (
+            <motion.div
+              key={pod.pod}
+              className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+              variants={MOTION.staggerChild}
+              whileHover={MOTION.hover.lift}
+            >
+              <p className="text-xs uppercase tracking-wide text-mentora-accent">{pod.pod}</p>
+              <p className="mt-2 text-sm text-mentora-muted">{pod.highlight}</p>
+              <motion.div className="mt-4 flex gap-2 text-2xl">
+                {pod.avatars.map((avatar) => (
+                  <motion.span
+                    key={avatar}
+                    className="rounded-2xl bg-mentora-accent/10 px-3 py-1"
+                    whileHover={{ scale: 1.1, rotateZ: 5 }}
+                  >
+                    {avatar}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </StaggerContainer>
     </div>
   );
 }
