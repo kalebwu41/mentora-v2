@@ -5,34 +5,22 @@ export const pathawayCatalog = [
     mood: 'Solve a high-stakes product bug in 48 hours.',
     steps: [
       {
-        title: 'Debugging Spike',
-        description: 'The onboarding flow crashes on mobile devices during OAuth.',
-        choices: [
-          { label: 'Instrument error logging + crash reports', skill: 'Systems Thinking', delta: 15 },
-          { label: 'Roll back to prior release immediately', skill: 'Risk Management', delta: 5 },
-          { label: 'Patch quickly with conditional try/catch', skill: 'Speed', delta: -5 },
-        ],
+        title: 'Debugging Project — Reproduce & Patch',
+        description: 'Reproduce a flaky production bug from the sample repo, add structured logging, and implement a tested hotfix.',
+        deliverable: 'Pull request with failing→passing repro, unit + e2e tests, and README reproduction steps',
       },
       {
-        title: 'Feature Prioritization',
-        description: 'PM wants to ship a new referral banner mid-incident.',
-        choices: [
-          { label: 'Host a triage standup to align', skill: 'Leadership', delta: 10 },
-          { label: 'Reject scope changes entirely', skill: 'Focus', delta: 0 },
-          { label: 'Accept request without validation', skill: 'Collaboration', delta: -10 },
-        ],
+        title: 'Feature Prototype — End-to-End',
+        description: 'Design an API contract and implement a lightweight backend + frontend prototype with integration tests.',
+        deliverable: 'Prototype branch, API spec (OpenAPI/Markdown), and 2–3 minute demo recording',
       },
       {
-        title: 'Integration Planning',
-        description: 'Security requests SSO updates within the same sprint.',
-        choices: [
-          { label: 'Stage rollout with dark launch toggles', skill: 'Architecture', delta: 10 },
-          { label: 'Migrate everything to prod immediately', skill: 'Velocity', delta: -10 },
-          { label: 'Pair with security to scope MVP', skill: 'Cross-Functional', delta: 8 },
-        ],
+        title: 'Reliability Project — Monitoring & Rollout',
+        description: 'Add observability, implement caching or rate-limits, and prepare a canary rollout with metrics.',
+        deliverable: 'Design doc, benchmark numbers, and canary deployment plan with rollback steps',
       },
     ],
-    deliverable: 'Write a recovery brief summarizing impact, fix, and resilience plan.',
+    deliverable: 'Portfolio-ready PRs, specs, and demo artifacts demonstrating real engineering work.',
   },
   {
     id: 'marketing',
@@ -40,34 +28,22 @@ export const pathawayCatalog = [
     mood: 'Mentora is debuting a teen career accelerator in LATAM.',
     steps: [
       {
-        title: 'Audience Insight',
-        description: 'Pick a priority persona for launch messaging.',
-        choices: [
-          { label: 'First-gen scholarship seekers', skill: 'Empathy', delta: 12 },
-          { label: 'College transfer students', skill: 'Relevancy', delta: 4 },
-          { label: 'Parents of middle schoolers', skill: 'Focus', delta: -4 },
-        ],
+        title: 'Audience & Landing Project — Persona to Lead Gen',
+        description: 'Define two priority personas, map a conversion funnel, and build a tracked landing page for lead capture.',
+        deliverable: 'Persona one-pager, live landing preview URL, and initial analytics snapshot',
       },
       {
-        title: 'Creative Direction',
-        description: 'Decide on the visual story for the hero video.',
-        choices: [
-          { label: 'Hand-drawn notebook transitions', skill: 'Originality', delta: 9 },
-          { label: 'Generic stock campus footage', skill: 'Execution', delta: -6 },
-          { label: 'Split-screen journeys', skill: 'Clarity', delta: 6 },
-        ],
+        title: 'Creative Campaign — Video & Test',
+        description: 'Produce hero creative and a 30s social video; run a micro paid test with measurable KPIs.',
+        deliverable: 'Storyboard + 30s video + campaign report (CTR, CPA, learnings)',
       },
       {
-        title: 'Go-to-market Alignment',
-        description: 'Sales wants assets for school district demos.',
-        choices: [
-          { label: 'Create a modular toolkit w/ localized stats', skill: 'Collaboration', delta: 11 },
-          { label: 'Provide final video only', skill: 'Focus', delta: -5 },
-          { label: 'Delay marketing launch', skill: 'Risk', delta: -8 },
-        ],
+        title: 'GTM & Partnerships — Pilot Outreach',
+        description: 'Create a partner outreach kit, localized assets, and run a pilot outreach with measured conversions.',
+        deliverable: 'Partner playbook, localized landing, and KPI model for scaling',
       },
     ],
-    deliverable: 'Ship a Notion board with copy, visuals, and KPIs.',
+    deliverable: 'Campaign assets, data-backed learnings, and partnership materials suitable for portfolio.',
   },
   {
     id: 'business',
@@ -75,34 +51,22 @@ export const pathawayCatalog = [
     mood: 'Your climate hardware startup is experiencing a supply crunch.',
     steps: [
       {
-        title: 'Budget Shock',
-        description: 'Costs are up 30%.',
-        choices: [
-          { label: 'Renegotiate vendor contracts', skill: 'Negotiation', delta: 10 },
-          { label: 'Slash R&D entirely', skill: 'Short-Term', delta: -8 },
-          { label: 'Seek bridge financing', skill: 'Capital Strategy', delta: 7 },
-        ],
+        title: 'Cash Triage Project — 3-Scenario Forecast',
+        description: 'Build a three-scenario cash flow model and recommend two immediate levers (cost or revenue) to stabilize operations.',
+        deliverable: '1‑page recovery plan, updated forecast, and vendor negotiation or bridge financing script',
       },
       {
-        title: 'Market Strategy',
-        description: 'Enterprise pilots stall as a competitor undercuts price.',
-        choices: [
-          { label: 'Double down on premium insights', skill: 'Differentiation', delta: 9 },
-          { label: 'Compete solely on price', skill: 'Positioning', delta: -6 },
-          { label: 'Pause pilots to regroup', skill: 'Focus', delta: -2 },
-        ],
+        title: 'Customer Validation Project — Offer Test',
+        description: 'Run 10 customer interviews, build a low-cost landing, and test a pricing/offer hypothesis with real signups.',
+        deliverable: 'Interview synthesis, validated metrics, and prototype offer page with conversion data',
       },
       {
-        title: 'Crisis Response',
-        description: 'A prototype failed mid-demo.',
-        choices: [
-          { label: 'Own the issue + publish RCA', skill: 'Transparency', delta: 11 },
-          { label: 'Blame logistics partner', skill: 'Teamwork', delta: -7 },
-          { label: 'Offer extended warranties', skill: 'Customer Success', delta: 6 },
-        ],
+        title: 'Stabilize vs Scale Plan — Revenue Channel Test',
+        description: 'Prepare investor-facing update and run a controlled experiment on one revenue channel to show traction.',
+        deliverable: 'Investor update deck, 6‑month plan, and KPI experiment results',
       },
     ],
-    deliverable: 'Draft an investor update with revenue + morale signals.',
+    deliverable: 'Tangible recovery artifacts (models, test data, investor-ready docs).',
   },
   {
     id: 'mechanical',
@@ -110,34 +74,22 @@ export const pathawayCatalog = [
     mood: 'Design a lightweight prosthetic wrist adaptor.',
     steps: [
       {
-        title: 'CAD Decisions',
-        description: 'Choose the initial geometry for load tests.',
-        choices: [
-          { label: 'Topology-optimized lattice', skill: 'Innovation', delta: 12 },
-          { label: 'Simple block model', skill: 'Speed', delta: -3 },
-          { label: 'Imported generic part', skill: 'Reuse', delta: -6 },
-        ],
+        title: 'Concept & FEA — Load Case Validation',
+        description: 'Create annotated CAD sketches and run a simple FEA for the primary load case; define pass/fail thresholds.',
+        deliverable: 'Annotated CAD + FEA report + test acceptance criteria',
       },
       {
-        title: 'Material Trade-offs',
-        description: 'Pick between carbon fiber, titanium, or polymer.',
-        choices: [
-          { label: 'Hybrid carbon-titanium core', skill: 'Systems Thinking', delta: 10 },
-          { label: 'Polymer only', skill: 'Cost', delta: -5 },
-          { label: 'Titanium only', skill: 'Durability', delta: 6 },
-        ],
+        title: 'Prototype & Test — Build and Measure',
+        description: 'Produce a small physical prototype, run load and cycle tests, and record sensor data.',
+        deliverable: 'Prototype photos, BOM, test logs, and data visualizations',
       },
       {
-        title: 'Iteration & Testing',
-        description: 'A patient feedback session reveals discomfort.',
-        choices: [
-          { label: 'Adjust ergonomics + add silicone grip', skill: 'Human-Centered', delta: 11 },
-          { label: 'Ship as-is to meet deadline', skill: 'Speed', delta: -9 },
-          { label: 'Revert to old design', skill: 'Comfort Zone', delta: -4 },
-        ],
+        title: 'Ergonomics & Manufacturing Prep',
+        description: 'Run user feedback, refine ergonomics, and prepare manufacturing-ready drawings and QC checklist.',
+        deliverable: 'Final CAD package, QC checklist, and pilot test notes',
       },
     ],
-    deliverable: 'Upload annotated CAD renders + testing notes.',
+    deliverable: 'Engineering artifacts ready for portfolio (CAD, test data, BOM).',
   },
   {
     id: 'healthcare',
