@@ -18,8 +18,8 @@ export default function NavBar() {
   const { pathname } = useLocation();
 
   return (
-    <header className="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-gray-100">
-      <div className="container flex w-full items-center justify-between py-4">
+    <header className="sticky top-0 z-30 w-full backdrop-blur bg-white/80 border-b border-gray-100">
+      <div className="h-auto flex w-full items-center justify-between py-4 px-6">
         <Link to="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-mentora-primary">
           <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo" />
           <span className="text-xl font-bold">Mentora</span>

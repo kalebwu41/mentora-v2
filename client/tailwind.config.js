@@ -24,6 +24,9 @@ export default {
         soft: '0 6px 18px rgba(0,0,0,0.06)',
       },
     },
+    container: {
+      screens: false, // Disable default container constraints
+    },
   },
   plugins: [],
 }

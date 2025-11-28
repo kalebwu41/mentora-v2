@@ -29,8 +29,8 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 h-screen flex flex-col items-center justify-center">
-        <div className="max-w-4xl text-center space-y-8">
+      <div className="relative z-10 w-full h-screen flex flex-col items-center justify-center px-6">
+        <div className="max-w-4xl text-center space-y-8 w-full">
           {/* Headline */}
           <SlideUpFadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight">

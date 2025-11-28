@@ -39,8 +39,8 @@ export default function FeatureGrid() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="w-full py-24 bg-white">
+      <div className="content-container">
         <div className="text-center mb-16">
           <SlideUpFadeIn>
             <h2 className="text-4xl md:text-5xl font-bold text-mentora-primary mb-4">
