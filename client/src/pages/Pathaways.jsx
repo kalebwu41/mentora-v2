@@ -6,7 +6,7 @@ import PathwayCard from '../components/pathways/PathwayCard.jsx';
 import PathwayFlow from '../components/pathways/PathwayFlow.jsx';
 import { syncPathawayResult } from '../services/api.js';
 import { useUser } from '../context/UserContext.jsx';
-import { StaggerContainer, SectionTitle } from '../components/animations/index.js';
+import { StaggerContainer, SectionTitle } from '../components/animations/index.jsx';
 import MOTION from '../utils/motionConfig.js';
 
 export default function Pathaways() {

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import Chip from '../components/ui/Chip.jsx';
 import { useUser } from '../context/UserContext.jsx';
-import { SectionTitle, AnimatedCard, StaggerContainer, MOTION } from '../components/animations/index.js';
+import { SectionTitle, AnimatedCard, StaggerContainer, MOTION } from '../components/animations/index.jsx';
 
 export default function Profile() {
   const { user, updateUser } = useUser();
