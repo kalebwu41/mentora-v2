@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { MOTION } from '../animations/index.js';
+import { MOTION } from '../animations/index.jsx';
 
 const navItems = [
   { label: 'Home', href: '/' },

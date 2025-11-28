@@ -5,7 +5,7 @@ import PersonaForm from '../components/roadmap/PersonaForm.jsx';
 import RoadmapCanvas from '../components/roadmap/RoadmapCanvas.jsx';
 import { requestRoadmap } from '../services/api.js';
 import { useUser } from '../context/UserContext.jsx';
-import { SectionTitle, MOTION } from '../components/animations/index.js';
+import { SectionTitle, MOTION } from '../components/animations/index.jsx';
 
 export default function Roadmap() {
   const { user, updateUser } = useUser();

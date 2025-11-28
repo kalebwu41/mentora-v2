@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MOTION } from '../animations/index.js';
+import { MOTION } from '../animations/index.jsx';
 
 const footerLinks = [
   { label: 'Roadmap Engine', href: '/roadmap' },

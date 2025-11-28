@@ -9,7 +9,7 @@ import {
 } from 'recharts';
 import { skillConstellation, taskQueue, podActivityPeek } from '../data/skills.js';
 import { generateUpcomingTasks } from '../utils/scoring.js';
-import { AnimatedCard, StaggerContainer, SectionTitle } from '../components/animations/index.js';
+import { AnimatedCard, StaggerContainer, SectionTitle } from '../components/animations/index.jsx';
 import MOTION from '../utils/motionConfig.js';
 
 function TaskBoard() {

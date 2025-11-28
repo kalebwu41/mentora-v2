@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import MainLayout from './components/layout/MainLayout.jsx';
-import { PageTransition } from './components/animations/index.js';
+import { PageTransition } from './components/animations/index.jsx';
 import Landing from './pages/Landing.jsx';
 import Home from './pages/Home.jsx';
 import Roadmap from './pages/Roadmap.jsx';

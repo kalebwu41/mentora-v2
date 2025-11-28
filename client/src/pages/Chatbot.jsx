@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import ChatInterface from '../components/chatbot/ChatInterface.jsx';
 import SuggestionPanel from '../components/chatbot/SuggestionPanel.jsx';
 import { useUser } from '../context/UserContext.jsx';
-import { SectionTitle, MOTION } from '../components/animations/index.js';
+import { SectionTitle, MOTION } from '../components/animations/index.jsx';
 
 export default function Chatbot() {
   const { user } = useUser();

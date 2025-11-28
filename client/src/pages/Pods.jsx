@@ -5,7 +5,7 @@ import { podChannels } from '../data/pods.js';
 import PodComposer from '../components/pods/PodComposer.jsx';
 import PodFeed from '../components/pods/PodFeed.jsx';
 import { fetchPodFeed } from '../services/api.js';
-import { SectionTitle, StaggerContainer, MOTION } from '../components/animations/index.js';
+import { SectionTitle, StaggerContainer, MOTION } from '../components/animations/index.jsx';
 
 export default function Pods() {
   const [feed, setFeed] = useState([]);
