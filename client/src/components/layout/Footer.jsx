@@ -11,9 +11,9 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-gray-100 bg-white">
+    <footer className="w-full bg-gradient-to-r from-mentora-primary-dark via-mentora-primary to-mentora-accent-bright border-t border-mentora-secondary/30">
       <motion.div
-        className="w-full flex flex-col gap-6 py-10 px-6 md:flex-row md:items-center md:justify-between"
+        className="w-full flex flex-col gap-8 py-16 px-6 md:flex-row md:items-center md:justify-between"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -23,13 +23,13 @@ export default function Footer() {
           className="flex items-center gap-4"
           whileHover={{ x: 4 }}
         >
-          <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo" />
+          <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo brightness-0 invert w-10 h-10" />
           <div>
-            <p className="text-lg font-semibold">Mentora</p>
-            <p className="text-sm text-mentora-muted">AI-driven career blueprints for ambitious students.</p>
+            <p className="text-xl font-black text-white">MENTORA</p>
+            <p className="text-sm text-mentora-secondary font-semibold">AI-driven career blueprints for ambitious students.</p>
           </div>
         </motion.div>
-        <div className="flex flex-wrap gap-4 text-sm font-medium text-mentora-muted">
+        <div className="flex flex-wrap gap-8 text-sm font-bold text-white/80">
           {footerLinks.map((link, idx) => (
             <motion.div
               key={link.href}
@@ -40,7 +40,7 @@ export default function Footer() {
             >
               <Link
                 to={link.href}
-                className="transition hover:text-mentora-accent"
+                className="transition hover:text-mentora-secondary"
               >
                 <motion.span
                   whileHover={{ y: -2 }}
@@ -51,7 +51,7 @@ export default function Footer() {
               </Link>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
     </footer>
   );

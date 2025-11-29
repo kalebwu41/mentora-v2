@@ -39,32 +39,32 @@ export default function FeatureGrid() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="w-full py-24 bg-white">
+    <section ref={ref} className="w-full py-32 bg-gradient-to-b from-mentora-primary via-mentora-primary-dark to-mentora-primary">
       <div className="content-container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <SlideUpFadeIn>
-            <h2 className="text-4xl md:text-5xl font-bold text-mentora-primary mb-4">
-              Everything you need to succeed.
+            <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
+              Everything You Need To Succeed
             </h2>
-            <p className="text-lg text-mentora-muted max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-mentora-accent-light max-w-2xl mx-auto font-semibold">
               Built for ambitious students who want real feedback, real work, and a real career advantage.
             </p>
           </SlideUpFadeIn>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, idx) => (
             <motion.div
               key={feature.title}
-              className="rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 p-6 border border-mentora-primary/10 hover:border-mentora-accent/30 transition-all duration-300"
+              className="rounded-2xl bg-gradient-to-br from-mentora-secondary via-mentora-accent to-mentora-accent-bright p-8 border border-mentora-secondary/40 hover:border-mentora-secondary transition-all duration-300 shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              whileHover={{ y: -4, shadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+              whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(245, 158, 11, 0.3)' }}
             >
-              <div className="text-4xl mb-3">{feature.icon}</div>
-              <h3 className="text-lg font-semibold text-mentora-primary mb-2">{feature.title}</h3>
-              <p className="text-sm text-mentora-muted leading-relaxed">{feature.description}</p>
+              <div className="text-5xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+              <p className="text-mentora-surface/90 leading-relaxed font-medium">{feature.description}</p>
             </motion.div>
           ))}
         </div>
