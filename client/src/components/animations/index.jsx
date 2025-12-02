@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
 import MOTION from '../../utils/motionConfig.js';
 
-// Export MOTION for components that need it directly
-export { MOTION };
-
 /**
  * Page transition wrapper for routes
  * Wraps entire page content with fade in/out

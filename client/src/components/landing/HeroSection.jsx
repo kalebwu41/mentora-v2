@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { SectionTitle, AnimatedCard } from '../animations/index.jsx';
+import { SlideUpFadeIn, ScaleAndFade } from '../animations/index.jsx';
 
 export default function HeroSection() {
   return (
@@ -9,21 +9,21 @@ export default function HeroSection() {
       <div className="relative z-10 w-full px-6 py-20 md:py-32">
         <div className="content-container max-w-4xl">
           {/* Title - YC Style */}
-          <SectionTitle delay={0.1}>
+          <SlideUpFadeIn delay={0.1}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-mentora-primary mb-6">
               Mentora
             </h1>
-          </SectionTitle>
+          </SlideUpFadeIn>
 
           {/* Tagline - Crisp and Clear */}
-          <SectionTitle delay={0.2}>
+          <SlideUpFadeIn delay={0.2}>
             <p className="text-xl md:text-2xl font-semibold text-mentora-text mb-8 max-w-2xl">
               Career navigation powered by AI, mentors, and real-world projects.
             </p>
-          </SectionTitle>
+          </SlideUpFadeIn>
 
           {/* Testimonials Section */}
-          <SectionTitle delay={0.3}>
+          <SlideUpFadeIn delay={0.3}>
             <div className="space-y-6 mb-12 pb-12 border-b border-mentora-text/10">
               {/* Testimonial 1 */}
               <div className="space-y-2">
@@ -45,23 +45,25 @@ export default function HeroSection() {
                 </p>
               </div>
             </div>
-          </SectionTitle>
+          </SlideUpFadeIn>
 
           {/* CTA Buttons */}
-          <AnimatedCard delay={0.4} className="flex flex-col sm:flex-row items-start gap-4">
-            <Link
-              to="/roadmap"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-mentora-primary text-white font-bold hover:bg-mentora-primary-dark transition-all duration-300 hover:shadow-lg"
-            >
-              Get Started <ArrowRight size={18} />
-            </Link>
-            <Link
-              to="/pathaways"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-mentora-primary text-mentora-primary font-bold hover:bg-mentora-primary/5 transition-all duration-300"
-            >
-              Explore Pathways <ArrowRight size={18} />
-            </Link>
-          </AnimatedCard>
+          <ScaleAndFade delay={0.4}>
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <Link
+                to="/roadmap"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-mentora-primary text-white font-bold hover:bg-mentora-primary-dark transition-all duration-300 hover:shadow-lg"
+              >
+                Get Started <ArrowRight size={18} />
+              </Link>
+              <Link
+                to="/pathaways"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-mentora-primary text-mentora-primary font-bold hover:bg-mentora-primary/5 transition-all duration-300"
+              >
+                Explore Pathways <ArrowRight size={18} />
+              </Link>
+            </div>
+          </ScaleAndFade>
         </div>
       </div>
 
