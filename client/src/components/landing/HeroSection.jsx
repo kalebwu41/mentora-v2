@@ -1,87 +1,140 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import SlideUpFadeIn from '../animations/SlideUpFadeIn.jsx';
-import ScaleAndFade from '../animations/ScaleAndFade.jsx';
-import FloatIn from '../animations/FloatIn.jsx';
-import Parallax from '../animations/Parallax.jsx';
-import TestimonialBubbles from './TestimonialBubbles.jsx';
-import TrustedBar from './TrustedBar.jsx';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-gradient-primary">
-      {/* Animated gradient overlay */}
-      <Parallax offset={100}>
-        <div className="absolute inset-0 bg-gradient-to-b from-mentora-primary/20 via-transparent to-mentora-secondary/30 opacity-60" />
-      </Parallax>
-
-      {/* Subtle animated background elements */}
-      <motion.div
-        className="absolute top-20 left-1/4 w-96 h-96 bg-mentora-secondary/30 rounded-full blur-3xl"
-        animate={{ y: [0, 40, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute bottom-32 right-1/4 w-96 h-96 bg-mentora-accent-light/25 rounded-full blur-3xl"
-        animate={{ y: [40, 0, 40] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-      />
+    <div className="w-full min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 overflow-hidden relative">
+      {/* Animated background grid */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/30 via-transparent to-blue-600/30" />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full h-screen flex flex-col items-center justify-center px-6">
-        <div className="max-w-5xl text-center space-y-8 w-full">
-          {/* Brand Logo/Text - MENTORA DOMINANT */}
-          <SlideUpFadeIn delay={0.1}>
-            <div className="space-y-4">
-              <h1 className="text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter text-white drop-shadow-lg">
-                MENTORA
-              </h1>
-              <div className="h-1 w-32 bg-gradient-to-r from-mentora-secondary via-mentora-accent-bright to-mentora-secondary mx-auto" />
-            </div>
-          </SlideUpFadeIn>
+      <div className="relative z-10 w-full h-screen flex flex-col items-center justify-center px-6 py-12">
+        {/* Top Navigation - Explore Link */}
+        <motion.div
+          className="absolute top-8 right-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <Link
+            to="/pathaways"
+            className="text-sm font-semibold text-gray-100 hover:text-cyan-300 transition-colors duration-200 uppercase tracking-wider"
+          >
+            Explore →
+          </Link>
+        </motion.div>
+
+        {/* Main Content */}
+        <div className="max-w-4xl text-center space-y-8">
+          {/* Animated Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="space-y-4 relative"
+          >
+            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black leading-tight tracking-tight">
+              <span className="text-white">Mentora</span>
+            </h1>
+
+            {/* Animated glow effect on title */}
+            <motion.div
+              className="absolute inset-0 blur-3xl opacity-0 pointer-events-none"
+              animate={{
+                opacity: [0.15, 0.25, 0.15],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+              style={{
+                background: 'radial-gradient(circle, #00d4ff 0%, transparent 70%)',
+              }}
+            />
+          </motion.div>
 
           {/* Tagline */}
-          <SlideUpFadeIn delay={0.2}>
-            <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white/95 leading-relaxed max-w-3xl mx-auto">
-              AI-Powered Career Navigation
-            </p>
-          </SlideUpFadeIn>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+            className="text-2xl md:text-3xl font-semibold text-gray-100 leading-relaxed"
+          >
+            Your Personal AI Career Coach
+          </motion.p>
 
-          {/* Supporting text */}
-          <SlideUpFadeIn delay={0.3}>
-            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-              Interactive roadmaps, instant feedback, and internship-style tasks. Build your career blueprint with mentors and AI, not alone.
-            </p>
-          </SlideUpFadeIn>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+            className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
+          >
+            Interactive roadmaps, real-world projects, and mentorship that actually sticks.
+          </motion.p>
 
-          {/* CTA Buttons */}
-          <ScaleAndFade delay={0.5}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-              <Link
-                to="/roadmap"
-                className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-mentora-secondary font-bold text-mentora-primary hover:shadow-lg hover:shadow-mentora-secondary/50 transition-all duration-300 hover:scale-105 text-lg"
-              >
-                Get Started <ArrowRight size={20} />
-              </Link>
-              <Link
-                to="/pathaways"
-                className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white/20 backdrop-blur border-2 border-white text-white font-bold hover:bg-white/30 transition-all duration-300 text-lg"
-              >
-                Explore Pathways <ArrowRight size={20} />
-              </Link>
-            </div>
-          </ScaleAndFade>
+          {/* Primary CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+            className="pt-6"
+          >
+            <Link
+              to="/roadmap"
+              className="inline-block px-10 py-4 rounded-lg bg-cyan-400 text-blue-900 font-bold text-lg hover:bg-cyan-300 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50 transform hover:scale-105"
+            >
+              Get Started
+            </Link>
+          </motion.div>
         </div>
+
+        {/* Bottom Section - Founders/Team */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+          className="absolute bottom-8 left-0 right-0 text-center"
+        >
+          <p className="text-sm text-gray-400 uppercase tracking-wider mb-3">Built by</p>
+          <p className="text-gray-200 font-medium">
+            Dazhi Lu, Kaleb Wu, Sahil Mohammed
+          </p>
+        </motion.div>
+
+        {/* Animated accent lines */}
+        <motion.div
+          className="absolute bottom-32 left-1/4 w-2 h-2 rounded-full bg-cyan-400"
+          animate={{
+            y: [0, -10, 0],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute bottom-24 right-1/4 w-2 h-2 rounded-full bg-blue-300"
+          animate={{
+            y: [0, 10, 0],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            delay: 1,
+            ease: 'easeInOut',
+          }}
+        />
       </div>
 
-      {/* Testimonials */}
-      <TestimonialBubbles />
-
-      {/* Trusted Bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-mentora-primary to-transparent">
-        <TrustedBar />
-      </div>
+      {/* Bottom gradient accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-400/20 to-transparent pointer-events-none" />
     </div>
   );
 }
