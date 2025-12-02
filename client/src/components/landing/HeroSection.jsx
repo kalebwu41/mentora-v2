@@ -1,63 +1,72 @@
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { SectionTitle, AnimatedCard } from '../animations/index.jsx';
 
 export default function HeroSection() {
   return (
-    <div className="w-full min-h-screen bg-white flex items-center justify-center px-6 py-12">
-      <div className="max-w-2xl w-full">
-        {/* Title */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-black mb-6">
-          Mentora
-        </h1>
+    <div className="relative w-full overflow-hidden bg-white">
+      {/* Content */}
+      <div className="relative z-10 w-full px-6 py-20 md:py-32">
+        <div className="content-container max-w-4xl">
+          {/* Title - YC Style */}
+          <SectionTitle delay={0.1}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-mentora-primary mb-6">
+              Mentora
+            </h1>
+          </SectionTitle>
 
-        {/* Main Tagline */}
-        <p className="text-xl md:text-2xl font-semibold text-gray-900 mb-12">
-          Career navigation powered by AI, mentors, and real-world projects.
-        </p>
-
-        {/* Testimonials */}
-        <div className="space-y-8 mb-12">
-          {/* Testimonial 1 */}
-          <blockquote className="space-y-2">
-            <p className="text-lg text-gray-800 leading-relaxed">
-              "Mentora turned my career confusion into a structured 3-year plan. The Pods feedback changed everything."
+          {/* Tagline - Crisp and Clear */}
+          <SectionTitle delay={0.2}>
+            <p className="text-xl md:text-2xl font-semibold text-mentora-text mb-8 max-w-2xl">
+              Career navigation powered by AI, mentors, and real-world projects.
             </p>
-            <p className="text-sm text-gray-600 font-medium">
-              — Alex Chen, CS Student @ MIT
-            </p>
-          </blockquote>
+          </SectionTitle>
 
-          {/* Testimonial 2 */}
-          <blockquote className="space-y-2">
-            <p className="text-lg text-gray-800 leading-relaxed">
-              "Finally, a platform where students can ship real work and get mentorship that sticks. Interactive roadmaps, instant feedback, and internship-style tasks."
-            </p>
-            <p className="text-sm text-gray-600 font-medium">
-              — Jordan Lee, CTO @ TechScale
-            </p>
-          </blockquote>
-        </div>
+          {/* Testimonials Section */}
+          <SectionTitle delay={0.3}>
+            <div className="space-y-6 mb-12 pb-12 border-b border-mentora-text/10">
+              {/* Testimonial 1 */}
+              <div className="space-y-2">
+                <p className="text-lg text-mentora-text leading-relaxed">
+                  <span className="font-semibold text-mentora-primary">"Mentora feels like having a personal chief-of-staff."</span> Instead of trying everything, I now have a clear roadmap with weekly milestones. The feedback loop is real.
+                </p>
+                <p className="text-sm text-mentora-text-light font-medium">
+                  — Alex Chen, Stanford, CS + Design
+                </p>
+              </div>
 
-        {/* Supporting Text */}
-        <p className="text-lg text-gray-800 mb-10">
-          Build your career blueprint with mentors and AI, not alone.
-        </p>
+              {/* Testimonial 2 */}
+              <div className="space-y-2">
+                <p className="text-lg text-mentora-text leading-relaxed">
+                  <span className="font-semibold text-mentora-primary">"I've shipped more real work in 3 months than my whole freshman year."</span> The pathways feel like actual internships, not just assignments. And the Pod feedback actually changes how I think.
+                </p>
+                <p className="text-sm text-mentora-text-light font-medium">
+                  — Jordan Lee, MIT, 2025
+                </p>
+              </div>
+            </div>
+          </SectionTitle>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-start gap-4">
-          <Link
-            to="/roadmap"
-            className="px-8 py-3 rounded-lg bg-[#2d8bba] text-white font-bold text-base hover:bg-[#045480] transition-colors duration-200"
-          >
-            Get Started
-          </Link>
-          <Link
-            to="/pathaways"
-            className="px-8 py-3 rounded-lg border-2 border-[#2d8bba] text-[#2d8bba] font-bold text-base hover:bg-[#2d8bba] hover:text-white transition-colors duration-200"
-          >
-            Explore Pathways
-          </Link>
+          {/* CTA Buttons */}
+          <AnimatedCard delay={0.4} className="flex flex-col sm:flex-row items-start gap-4">
+            <Link
+              to="/roadmap"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-mentora-primary text-white font-bold hover:bg-mentora-primary-dark transition-all duration-300 hover:shadow-lg"
+            >
+              Get Started <ArrowRight size={18} />
+            </Link>
+            <Link
+              to="/pathaways"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-mentora-primary text-mentora-primary font-bold hover:bg-mentora-primary/5 transition-all duration-300"
+            >
+              Explore Pathways <ArrowRight size={18} />
+            </Link>
+          </AnimatedCard>
         </div>
       </div>
+
+      {/* Decorative gradient line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-mentora-primary to-transparent opacity-20" />
     </div>
   );
 }
