@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 overflow-hidden relative">
-      {/* Animated background grid */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/30 via-transparent to-blue-600/30" />
+    <div className="w-full min-h-screen bg-white overflow-hidden relative">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,#2c5282_0%,transparent_50%)]" />
       </div>
 
       {/* Content */}
@@ -16,44 +16,33 @@ export default function HeroSection() {
           className="absolute top-8 right-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <Link
             to="/pathaways"
-            className="text-sm font-semibold text-gray-100 hover:text-cyan-300 transition-colors duration-200 uppercase tracking-wider"
+            className="text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors duration-300 uppercase tracking-wider"
           >
             Explore →
           </Link>
         </motion.div>
 
         {/* Main Content */}
-        <div className="max-w-4xl text-center space-y-8">
-          {/* Animated Title */}
+        <div className="max-w-4xl text-center space-y-10">
+          {/* Title */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="space-y-4 relative"
+            className="space-y-6"
           >
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black leading-tight tracking-tight">
-              <span className="text-white">Mentora</span>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-gray-900">
+              Mentora
             </h1>
 
-            {/* Animated glow effect on title */}
-            <motion.div
-              className="absolute inset-0 blur-3xl opacity-0 pointer-events-none"
-              animate={{
-                opacity: [0.15, 0.25, 0.15],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              style={{
-                background: 'radial-gradient(circle, #00d4ff 0%, transparent 70%)',
-              }}
-            />
+            {/* Subtle line accent */}
+            <div className="flex justify-center">
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+            </div>
           </motion.div>
 
           {/* Tagline */}
@@ -61,9 +50,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="text-2xl md:text-3xl font-semibold text-gray-100 leading-relaxed"
+            className="text-2xl md:text-2xl font-light leading-relaxed text-gray-700 max-w-3xl mx-auto"
           >
-            Your Personal AI Career Coach
+            Intelligent career navigation powered by AI and expert mentorship
           </motion.p>
 
           {/* Subtitle */}
@@ -71,9 +60,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-            className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
-            Interactive roadmaps, real-world projects, and mentorship that actually sticks.
+            Build your career with intelligent guidance, structured roadmaps, and mentorship from industry leaders.
           </motion.p>
 
           {/* Primary CTA Button */}
@@ -85,7 +74,7 @@ export default function HeroSection() {
           >
             <Link
               to="/roadmap"
-              className="inline-block px-10 py-4 rounded-lg bg-cyan-400 text-blue-900 font-bold text-lg hover:bg-cyan-300 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50 transform hover:scale-105"
+              className="inline-block px-12 py-4 rounded-sm bg-gray-900 text-white font-semibold text-base hover:bg-gray-800 transition-colors duration-300 shadow-sm hover:shadow-md"
             >
               Get Started
             </Link>
@@ -99,42 +88,15 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           className="absolute bottom-8 left-0 right-0 text-center"
         >
-          <p className="text-sm text-gray-400 uppercase tracking-wider mb-3">Built by</p>
-          <p className="text-gray-200 font-medium">
+          <p className="text-xs text-gray-400 uppercase tracking-widest mb-3 letter-spacing">Built by</p>
+          <p className="text-sm text-gray-600 font-medium">
             Dazhi Lu, Kaleb Wu, Sahil Mohammed
           </p>
         </motion.div>
 
-        {/* Animated accent lines */}
-        <motion.div
-          className="absolute bottom-32 left-1/4 w-2 h-2 rounded-full bg-cyan-400"
-          animate={{
-            y: [0, -10, 0],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-24 right-1/4 w-2 h-2 rounded-full bg-blue-300"
-          animate={{
-            y: [0, 10, 0],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            delay: 1,
-            ease: 'easeInOut',
-          }}
-        />
+        {/* Bottom subtle accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       </div>
-
-      {/* Bottom gradient accent */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-400/20 to-transparent pointer-events-none" />
     </div>
   );
 }

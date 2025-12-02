@@ -11,7 +11,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-blue-950 via-blue-900 to-blue-800 border-t border-cyan-400/20">
+    <footer className="w-full bg-white border-t border-gray-200">
       <motion.div
         className="w-full flex flex-col gap-8 py-16 px-6 md:flex-row md:items-center md:justify-between"
         initial={{ opacity: 0, y: 10 }}
