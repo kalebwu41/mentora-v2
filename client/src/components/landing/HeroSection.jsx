@@ -1,74 +1,87 @@
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { SlideUpFadeIn, ScaleAndFade } from '../animations/index.jsx';
+import SlideUpFadeIn from '../animations/SlideUpFadeIn.jsx';
+import ScaleAndFade from '../animations/ScaleAndFade.jsx';
+import FloatIn from '../animations/FloatIn.jsx';
+import Parallax from '../animations/Parallax.jsx';
+import TestimonialBubbles from './TestimonialBubbles.jsx';
+import TrustedBar from './TrustedBar.jsx';
 
 export default function HeroSection() {
   return (
-    <div className="relative w-full overflow-hidden bg-white">
+    <div className="relative w-full min-h-screen overflow-hidden bg-gradient-primary">
+      {/* Animated gradient overlay */}
+      <Parallax offset={100}>
+        <div className="absolute inset-0 bg-gradient-to-b from-mentora-primary/20 via-transparent to-mentora-secondary/30 opacity-60" />
+      </Parallax>
+
+      {/* Subtle animated background elements */}
+      <motion.div
+        className="absolute top-20 left-1/4 w-96 h-96 bg-mentora-secondary/30 rounded-full blur-3xl"
+        animate={{ y: [0, 40, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute bottom-32 right-1/4 w-96 h-96 bg-mentora-accent-light/25 rounded-full blur-3xl"
+        animate={{ y: [40, 0, 40] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+      />
+
       {/* Content */}
-      <div className="relative z-10 w-full px-6 py-20 md:py-32">
-        <div className="content-container max-w-4xl">
-          {/* Title - YC Style */}
+      <div className="relative z-10 w-full h-screen flex flex-col items-center justify-center px-6">
+        <div className="max-w-5xl text-center space-y-8 w-full">
+          {/* Brand Logo/Text - MENTORA DOMINANT */}
           <SlideUpFadeIn delay={0.1}>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-mentora-primary mb-6">
-              Mentora
-            </h1>
-          </SlideUpFadeIn>
-
-          {/* Tagline - Crisp and Clear */}
-          <SlideUpFadeIn delay={0.2}>
-            <p className="text-xl md:text-2xl font-semibold text-mentora-text mb-8 max-w-2xl">
-              Career navigation powered by AI, mentors, and real-world projects.
-            </p>
-          </SlideUpFadeIn>
-
-          {/* Testimonials Section */}
-          <SlideUpFadeIn delay={0.3}>
-            <div className="space-y-6 mb-12 pb-12 border-b border-mentora-text/10">
-              {/* Testimonial 1 */}
-              <div className="space-y-2">
-                <p className="text-lg text-mentora-text leading-relaxed">
-                  <span className="font-semibold text-mentora-primary">"Mentora feels like having a personal chief-of-staff."</span> Instead of trying everything, I now have a clear roadmap with weekly milestones. The feedback loop is real.
-                </p>
-                <p className="text-sm text-mentora-text-light font-medium">
-                  — Alex Chen, Stanford, CS + Design
-                </p>
-              </div>
-
-              {/* Testimonial 2 */}
-              <div className="space-y-2">
-                <p className="text-lg text-mentora-text leading-relaxed">
-                  <span className="font-semibold text-mentora-primary">"I've shipped more real work in 3 months than my whole freshman year."</span> The pathways feel like actual internships, not just assignments. And the Pod feedback actually changes how I think.
-                </p>
-                <p className="text-sm text-mentora-text-light font-medium">
-                  — Jordan Lee, MIT, 2025
-                </p>
-              </div>
+            <div className="space-y-4">
+              <h1 className="text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter text-white drop-shadow-lg">
+                MENTORA
+              </h1>
+              <div className="h-1 w-32 bg-gradient-to-r from-mentora-secondary via-mentora-accent-bright to-mentora-secondary mx-auto" />
             </div>
           </SlideUpFadeIn>
 
+          {/* Tagline */}
+          <SlideUpFadeIn delay={0.2}>
+            <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white/95 leading-relaxed max-w-3xl mx-auto">
+              AI-Powered Career Navigation
+            </p>
+          </SlideUpFadeIn>
+
+          {/* Supporting text */}
+          <SlideUpFadeIn delay={0.3}>
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
+              Interactive roadmaps, instant feedback, and internship-style tasks. Build your career blueprint with mentors and AI, not alone.
+            </p>
+          </SlideUpFadeIn>
+
           {/* CTA Buttons */}
-          <ScaleAndFade delay={0.4}>
-            <div className="flex flex-col sm:flex-row items-start gap-4">
+          <ScaleAndFade delay={0.5}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
               <Link
                 to="/roadmap"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-mentora-primary text-white font-bold hover:bg-mentora-primary-dark transition-all duration-300 hover:shadow-lg"
+                className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-mentora-secondary font-bold text-mentora-primary hover:shadow-lg hover:shadow-mentora-secondary/50 transition-all duration-300 hover:scale-105 text-lg"
               >
-                Get Started <ArrowRight size={18} />
+                Get Started <ArrowRight size={20} />
               </Link>
               <Link
                 to="/pathaways"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-mentora-primary text-mentora-primary font-bold hover:bg-mentora-primary/5 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white/20 backdrop-blur border-2 border-white text-white font-bold hover:bg-white/30 transition-all duration-300 text-lg"
               >
-                Explore Pathways <ArrowRight size={18} />
+                Explore Pathways <ArrowRight size={20} />
               </Link>
             </div>
           </ScaleAndFade>
         </div>
       </div>
 
-      {/* Decorative gradient line */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-mentora-primary to-transparent opacity-20" />
+      {/* Testimonials */}
+      <TestimonialBubbles />
+
+      {/* Trusted Bar */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-mentora-primary to-transparent">
+        <TrustedBar />
+      </div>
     </div>
   );
 }
