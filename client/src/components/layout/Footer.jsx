@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MOTION } from '../animations/index.jsx';
+import mentoraLogo from '../../assets/mentora-logo.svg';
 
 const footerLinks = [
   { label: 'Roadmap Engine', href: '/roadmap' },
@@ -23,7 +24,13 @@ export default function Footer() {
           className="flex items-center gap-4"
           whileHover={{ x: 4 }}
         >
-          <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo w-10 h-10 opacity-80" />
+          <motion.img
+            src={mentoraLogo}
+            alt="Mentora logo"
+            className="w-10 h-10 opacity-80"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          />
           <div>
             <p className="text-xl font-black text-[var(--text-primary)]">MENTORA</p>
             <p className="text-sm text-[var(--text-secondary)] font-semibold">AI-driven career blueprints for ambitious students.</p>

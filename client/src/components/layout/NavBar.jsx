@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { MOTION } from '../animations/index.jsx';
+import mentoraLogo from '../../assets/mentora-logo.svg';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -21,7 +22,13 @@ export default function NavBar() {
     <header className="sticky top-0 z-30 w-full bg-white border-b border-gray-200">
       <div className="h-auto flex w-full items-center justify-between py-4 px-6">
         <Link to="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-[#0A1628] hover:opacity-80 transition">
-          <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo" />
+          <motion.img
+            src={mentoraLogo}
+            alt="Mentora logo"
+            className="h-10 w-10"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          />
           <span className="text-xl font-bold text-[#0A1628]">MENTORA</span>
         </Link>
 
