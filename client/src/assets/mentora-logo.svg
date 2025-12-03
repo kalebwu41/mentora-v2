@@ -1,4 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
-  <rect width="120" height="120" rx="24" fill="#0E3A77"/>
-  <path d="M30 80 L60 40 L90 80" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <!-- Circle background -->
+  <circle cx="150" cy="150" r="150" fill="#B8E6F0"/>
+
+  <!-- Person silhouette -->
+  <g transform="translate(150, 120)">
+    <!-- Head -->
+    <ellipse cx="0" cy="-20" rx="30" ry="35" fill="#0F5B7F"/>
+
+    <!-- Ears -->
+    <ellipse cx="-28" cy="-15" rx="8" ry="12" fill="#0F5B7F"/>
+    <ellipse cx="28" cy="-15" rx="8" ry="12" fill="#0F5B7F"/>
+
+    <!-- Neck/Shoulders -->
+    <path d="M -40 15 Q -40 0, -20 0 L 20 0 Q 40 0, 40 15 L 40 40 L -40 40 Z" fill="#0F5B7F"/>
+  </g>
+
+  <!-- Book -->
+  <g transform="translate(150, 180)">
+    <!-- Book pages -->
+    <path d="M -50 0 L -50 50 Q 0 45, 0 50 L 0 0 Q 0 5, -50 0 Z" fill="#1E96C8"/>
+    <path d="M 0 0 L 0 50 Q 0 45, 50 50 L 50 0 Q 0 5, 0 0 Z" fill="#5B9BD5"/>
+
+    <!-- Book spine -->
+    <rect x="-2" y="0" width="4" height="50" fill="#0F5B7F"/>
+
+    <!-- Page details -->
+    <line x1="-35" y1="15" x2="-15" y2="15" stroke="#0F5B7F" stroke-width="2" opacity="0.3"/>
+    <line x1="-35" y1="23" x2="-15" y2="23" stroke="#0F5B7F" stroke-width="2" opacity="0.3"/>
+    <line x1="-35" y1="31" x2="-15" y2="31" stroke="#0F5B7F" stroke-width="2" opacity="0.3"/>
+
+    <line x1="15" y1="15" x2="35" y2="15" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
+    <line x1="15" y1="23" x2="35" y2="23" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
+    <line x1="15" y1="31" x2="35" y2="31" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
+  </g>
 </svg>
