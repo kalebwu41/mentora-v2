@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Send } from 'lucide-react';
 
 export default function PodComposer({ pods, onPublish }) {
   const [draft, setDraft] = useState({
@@ -18,15 +19,22 @@ export default function PodComposer({ pods, onPublish }) {
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="glass-panel rounded-3xl p-6 space-y-4"
+      className="bg-white rounded-2xl p-6 shadow-card border border-mentora-text-dark/[0.08]"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <div className="flex flex-col gap-3 md:flex-row md:items-center">
-        <label className="text-sm font-semibold text-mentora-muted">
-          Pod
+      <h2 className="text-sm font-bold text-mentora-text-dark uppercase tracking-wide mb-4">
+        Share with Pod
+      </h2>
+
+      <div className="space-y-4">
+        {/* Pod Selector */}
+        <div>
+          <label className="block text-xs font-semibold text-mentora-text-on-light uppercase tracking-wide mb-2">
+            Select Pod
+          </label>
           <select
-            className="mt-1 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-3 py-2"
+            className="w-full rounded-lg border border-mentora-text-dark/[0.08] bg-white px-4 py-2.5 text-sm font-medium text-mentora-text-dark focus:border-mentora-accent focus:outline-none focus:ring-2 focus:ring-mentora-accent/20 transition-all"
             value={draft.podId}
             onChange={(e) => setDraft((prev) => ({ ...prev, podId: e.target.value }))}
           >
@@ -36,32 +44,57 @@ export default function PodComposer({ pods, onPublish }) {
               </option>
             ))}
           </select>
-        </label>
-        <label className="text-sm font-semibold text-mentora-muted">
-          Tag
-          <select
-            className="mt-1 w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-3 py-2"
-            value={draft.tag}
-            onChange={(e) => setDraft((prev) => ({ ...prev, tag: e.target.value }))}
-          >
+        </div>
+
+        {/* Tag Selector */}
+        <div>
+          <label className="block text-xs font-semibold text-mentora-text-on-light uppercase tracking-wide mb-2">
+            Tag
+          </label>
+          <div className="grid grid-cols-2 gap-2">
             {['Feedback', 'Critique', 'Win', 'Support'].map((tag) => (
-              <option key={tag}>{tag}</option>
+              <button
+                key={tag}
+                type="button"
+                onClick={() => setDraft((prev) => ({ ...prev, tag }))}
+                className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                  draft.tag === tag
+                    ? 'bg-mentora-accent text-white'
+                    : 'bg-mentora-neutral-50 text-mentora-text-on-light hover:bg-mentora-neutral-100'
+                }`}
+              >
+                {tag}
+              </button>
             ))}
-          </select>
-        </label>
+          </div>
+        </div>
+
+        {/* Message Input */}
+        <div>
+          <label className="block text-xs font-semibold text-mentora-text-on-light uppercase tracking-wide mb-2">
+            Your Message
+          </label>
+          <textarea
+            className="w-full rounded-lg border border-mentora-text-dark/[0.08] bg-white px-4 py-3 text-sm text-mentora-text-dark placeholder:text-mentora-text-on-light/50 focus:border-mentora-accent focus:outline-none focus:ring-2 focus:ring-mentora-accent/20 transition-all resize-none"
+            placeholder="Share your thoughts, ask for feedback, or celebrate a win..."
+            value={draft.prompt}
+            onChange={(e) => setDraft((prev) => ({ ...prev, prompt: e.target.value }))}
+            rows={4}
+          />
+        </div>
+
+        {/* Submit Button */}
+        <motion.button
+          type="submit"
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-mentora-accent text-white font-semibold text-sm hover:bg-mentora-accent-bright transition-all duration-200 shadow-button hover:shadow-button-hover disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={!draft.prompt.trim()}
+        >
+          <Send className="w-4 h-4" />
+          Publish to Pod
+        </motion.button>
       </div>
-      <textarea
-        className="min-h-[120px] w-full rounded-3xl border border-mentora-primary/10 bg-white/80 px-4 py-3 text-sm focus:border-mentora-accent focus:outline-none"
-        placeholder="Ask the pod for critique, share a win, or upload context..."
-        value={draft.prompt}
-        onChange={(e) => setDraft((prev) => ({ ...prev, prompt: e.target.value }))}
-      />
-      <button
-        type="submit"
-        className="w-full rounded-full btn"
-      >
-        Publish to Pod
-      </button>
     </motion.form>
   );
 }
