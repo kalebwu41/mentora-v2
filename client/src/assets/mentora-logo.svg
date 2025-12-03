@@ -1,44 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
   <!-- Light blue circle background -->
-  <circle cx="140" cy="140" r="140" fill="#C8E9F3"/>
+  <circle cx="150" cy="150" r="150" fill="#BFE6F0"/>
 
-  <!-- Person silhouette (dark blue) -->
-  <g transform="translate(140, 95)">
-    <!-- Head -->
-    <circle cx="0" cy="0" r="28" fill="#0B5577"/>
+  <!-- Person silhouette (dark navy blue) -->
+  <g transform="translate(150, 105)">
+    <!-- Head (circular) -->
+    <circle cx="0" cy="0" r="32" fill="#15557A"/>
 
-    <!-- Ears -->
-    <ellipse cx="-26" cy="2" rx="7" ry="10" fill="#0B5577"/>
-    <ellipse cx="26" cy="2" rx="7" ry="10" fill="#0B5577"/>
+    <!-- Left ear -->
+    <ellipse cx="-29" cy="3" rx="8" ry="12" fill="#15557A"/>
 
-    <!-- Neck and shoulders -->
-    <path d="M -35 28 Q -35 22, -18 22 L 18 22 Q 35 22, 35 28 L 35 65 L -35 65 Z" fill="#0B5577"/>
+    <!-- Right ear -->
+    <ellipse cx="29" cy="3" rx="8" ry="12" fill="#15557A"/>
+
+    <!-- Shoulders and upper body -->
+    <path d="M -40 32 Q -40 25, -20 25 L 20 25 Q 40 25, 40 32 L 40 70 L -40 70 Z" fill="#15557A"/>
   </g>
 
-  <!-- Open book -->
-  <g transform="translate(140, 165)">
-    <!-- White collar/book transition -->
-    <path d="M -42 0 Q -30 -8, 0 -12 Q 30 -8, 42 0 L 42 10 L -42 10 Z" fill="#FFFFFF"/>
+  <!-- Open book with white neckline -->
+  <g transform="translate(150, 175)">
+    <!-- White curved neckline/collar -->
+    <path d="M -48 -5 Q -35 -12, 0 -15 Q 35 -12, 48 -5 L 48 8 L -48 8 Z" fill="#FFFFFF"/>
 
-    <!-- Left page (darker blue) -->
-    <path d="M -55 10 L -55 75 Q -55 78, -52 80 L 0 68 L 0 10 Q -10 12, -55 10 Z" fill="#1B8AB8"/>
+    <!-- Left page of book (medium blue) -->
+    <path d="M -60 8 L -60 80 Q -60 84, -56 86 L -2 72 L -2 8 Q -15 10, -60 8 Z" fill="#1F8FB8"/>
 
-    <!-- Right page (lighter blue) -->
-    <path d="M 0 10 L 0 68 L 52 80 Q 55 78, 55 75 L 55 10 Q 10 12, 0 10 Z" fill="#3DA9D5"/>
+    <!-- Right page of book (lighter blue) -->
+    <path d="M 2 8 L 2 72 L 56 86 Q 60 84, 60 80 L 60 8 Q 15 10, 2 8 Z" fill="#3CAAD5"/>
 
-    <!-- Center spine shadow -->
-    <rect x="-1.5" y="10" width="3" height="58" fill="#0B5577" opacity="0.3"/>
+    <!-- Center spine/fold -->
+    <rect x="-2" y="8" width="4" height="64" fill="#15557A" opacity="0.25"/>
 
-    <!-- Page fold lines (left page) -->
-    <line x1="-40" y1="28" x2="-15" y2="30" stroke="#0B5577" stroke-width="1.5" opacity="0.2"/>
-    <line x1="-40" y1="38" x2="-15" y2="40" stroke="#0B5577" stroke-width="1.5" opacity="0.2"/>
-    <line x1="-40" y1="48" x2="-15" y2="50" stroke="#0B5577" stroke-width="1.5" opacity="0.2"/>
-    <line x1="-40" y1="58" x2="-15" y2="60" stroke="#0B5577" stroke-width="1.5" opacity="0.2"/>
+    <!-- Left page lines -->
+    <line x1="-45" y1="26" x2="-18" y2="28" stroke="#15557A" stroke-width="2" opacity="0.15"/>
+    <line x1="-45" y1="38" x2="-18" y2="40" stroke="#15557A" stroke-width="2" opacity="0.15"/>
+    <line x1="-45" y1="50" x2="-18" y2="52" stroke="#15557A" stroke-width="2" opacity="0.15"/>
+    <line x1="-45" y1="62" x2="-18" y2="64" stroke="#15557A" stroke-width="2" opacity="0.15"/>
 
-    <!-- Page fold lines (right page) -->
-    <line x1="15" y1="30" x2="40" y2="28" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
-    <line x1="15" y1="40" x2="40" y2="38" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
-    <line x1="15" y1="50" x2="40" y2="48" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
-    <line x1="15" y1="60" x2="40" y2="58" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+    <!-- Right page lines -->
+    <line x1="18" y1="28" x2="45" y2="26" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
+    <line x1="18" y1="40" x2="45" y2="38" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
+    <line x1="18" y1="52" x2="45" y2="50" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
+    <line x1="18" y1="64" x2="45" y2="62" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
   </g>
 </svg>
