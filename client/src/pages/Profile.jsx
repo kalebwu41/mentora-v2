@@ -30,12 +30,12 @@ export default function Profile() {
               {user.name?.slice(0, 2) ?? 'ME'}
             </span>
             <div>
-              <p className="text-lg font-semibold">{user.name}</p>
-              <p className="text-sm text-mentora-muted">Grade {user.gradeLevel}</p>
+              <p className="text-lg font-semibold text-[var(--text-primary)]">{user.name}</p>
+              <p className="text-sm text-[var(--text-secondary)]">Grade {user.gradeLevel}</p>
             </div>
           </motion.div>
           <textarea
-            className="min-h-[120px] w-full rounded-2xl border border-mentora-primary/10 bg-white/80 px-4 py-3 text-sm focus:border-mentora-accent focus:outline-none"
+            className="min-h-[120px] w-full rounded-2xl border border-[var(--accent)]/20 bg-[var(--surface)] px-4 py-3 text-sm text-[var(--text-primary)] focus:border-[var(--accent)] focus:outline-none"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
           />
@@ -50,10 +50,10 @@ export default function Profile() {
         </motion.div>
         <StaggerContainer staggerDelay={0.08}>
           <motion.div
-            className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+            className="rounded-3xl border border-[var(--accent)]/20 bg-[var(--surface)] p-5"
             variants={MOTION.staggerContainer(0)}
           >
-            <p className="text-xs uppercase tracking-wide text-mentora-accent">Passions</p>
+            <p className="text-xs uppercase tracking-wide text-[var(--accent)]">Passions</p>
             <motion.div className="mt-3 flex flex-wrap gap-2">
               {user.passions.map((passion, idx) => (
                 <motion.div
@@ -67,10 +67,10 @@ export default function Profile() {
             </motion.div>
           </motion.div>
           <motion.div
-            className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+            className="rounded-3xl border border-[var(--accent)]/20 bg-[var(--surface)] p-5"
             variants={MOTION.staggerContainer(0)}
           >
-            <p className="text-xs uppercase tracking-wide text-mentora-accent">Strengths</p>
+            <p className="text-xs uppercase tracking-wide text-[var(--accent)]">Strengths</p>
             <motion.div className="mt-3 flex flex-wrap gap-2">
               {user.strengths.map((strength) => (
                 <motion.div

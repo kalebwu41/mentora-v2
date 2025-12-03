@@ -27,7 +27,7 @@ export default function HeroSection() {
         >
           <Link
             to="/pathaways"
-            className="text-sm font-semibold text-[var(--text-light)] hover:text-[var(--text-dark)] transition-colors duration-300 uppercase tracking-wider"
+            className="text-sm font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300 uppercase tracking-wider"
           >
             Explore →
           </Link>
@@ -42,13 +42,13 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="space-y-6"
           >
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-[var(--text-dark)]">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-[var(--text-primary)]">
               Mentora
             </h1>
 
             {/* Subtle line accent */}
             <div className="flex justify-center">
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-40" />
             </div>
           </motion.div>
 
@@ -57,7 +57,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="text-2xl md:text-2xl font-light leading-relaxed text-[var(--text-light)] max-w-3xl mx-auto"
+            className="text-2xl md:text-2xl font-light leading-relaxed text-[var(--text-primary)] max-w-3xl mx-auto"
           >
             Intelligent career navigation powered by AI and expert mentorship
           </motion.p>
@@ -67,7 +67,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-            className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-base text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed"
           >
             Build your career with intelligent guidance, structured roadmaps, and mentorship from industry leaders.
           </motion.p>
@@ -92,14 +92,14 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           className="absolute bottom-8 left-0 right-0 text-center"
         >
-          <p className="text-xs text-gray-400 uppercase tracking-widest mb-3 letter-spacing">Built by</p>
-          <p className="text-sm text-gray-600 font-medium">
+          <p className="text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-3 letter-spacing opacity-60">Built by</p>
+          <p className="text-sm text-[var(--text-secondary)] font-medium">
             Dazhi Lu, Kaleb Wu, Sahil Mohammed
           </p>
         </motion.div>
 
         {/* Bottom subtle accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-20" />
       </div>
     </div>
   );

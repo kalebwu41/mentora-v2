@@ -11,7 +11,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white border-t border-gray-200">
+    <footer className="w-full bg-[var(--background)] border-t border-[var(--accent)]/20">
       <motion.div
         className="w-full flex flex-col gap-8 py-16 px-6 md:flex-row md:items-center md:justify-between"
         initial={{ opacity: 0, y: 10 }}
@@ -23,13 +23,13 @@ export default function Footer() {
           className="flex items-center gap-4"
           whileHover={{ x: 4 }}
         >
-          <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo brightness-0 invert w-10 h-10" />
+          <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo w-10 h-10 opacity-80" />
           <div>
-            <p className="text-xl font-black text-white">MENTORA</p>
-            <p className="text-sm text-mentora-secondary font-semibold">AI-driven career blueprints for ambitious students.</p>
+            <p className="text-xl font-black text-[var(--text-primary)]">MENTORA</p>
+            <p className="text-sm text-[var(--text-secondary)] font-semibold">AI-driven career blueprints for ambitious students.</p>
           </div>
         </motion.div>
-        <div className="flex flex-wrap gap-8 text-sm font-bold text-white/80">
+        <div className="flex flex-wrap gap-8 text-sm font-bold text-[var(--text-secondary)]">
           {footerLinks.map((link, idx) => (
             <motion.div
               key={link.href}
@@ -40,7 +40,7 @@ export default function Footer() {
             >
               <Link
                 to={link.href}
-                className="transition hover:text-mentora-secondary"
+                className="transition hover:text-[var(--accent)]"
               >
                 <motion.span
                   whileHover={{ y: -2 }}

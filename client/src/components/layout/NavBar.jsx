@@ -18,11 +18,11 @@ export default function NavBar() {
   const { pathname } = useLocation();
 
   return (
-    <header className="sticky top-0 z-30 w-full backdrop-blur bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-30 w-full bg-white border-b border-gray-200">
       <div className="h-auto flex w-full items-center justify-between py-4 px-6">
-        <Link to="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-gray-900 hover:opacity-80 transition">
+        <Link to="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-[#0A1628] hover:opacity-80 transition">
           <img src="/src/assets/mentora-logo.svg" alt="Mentora logo" className="logo" />
-          <span className="text-xl font-bold text-gray-900">MENTORA</span>
+          <span className="text-xl font-bold text-[#0A1628]">MENTORA</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -31,7 +31,7 @@ export default function NavBar() {
               key={href}
               to={href}
               className={({ isActive }) =>
-                `text-sm font-bold transition-colors relative ${isActive ? 'text-mentora-secondary' : 'text-white/80 hover:text-white'}`
+                `text-sm font-bold transition-colors relative ${isActive ? 'text-[#1E5EFF]' : 'text-[#0A1628]/70 hover:text-[#0A1628]'}`
               }
             >
               {({ isActive }) => (
@@ -42,7 +42,7 @@ export default function NavBar() {
                   {label}
                   {isActive && (
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-mentora-secondary rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-[#1E5EFF] rounded-full"
                       layoutId="activeNav"
                       transition={{ type: 'spring', stiffness: 400, damping: 60 }}
                     />
@@ -54,7 +54,7 @@ export default function NavBar() {
           <motion.div whileHover={MOTION.hover.lift} whileTap={{ scale: 0.95 }}>
             <Link
               to="/profile"
-              className="rounded-full bg-mentora-secondary px-6 py-2.5 text-sm font-bold text-mentora-primary shadow-lg hover:shadow-xl transition hover:bg-mentora-secondary-light"
+              className="rounded-full bg-[#1E5EFF] px-6 py-2.5 text-sm font-bold text-white shadow-lg hover:shadow-xl hover:bg-[#3B72FF] transition"
             >
               Launch Profile
             </Link>
@@ -62,11 +62,11 @@ export default function NavBar() {
         </nav>
 
         <button
-          className="rounded-xl border border-white/30 p-2 md:hidden hover:bg-white/10 transition"
+          className="rounded-xl border border-[#0A1628]/20 p-2 md:hidden hover:bg-[#0A1628]/5 transition"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={18} className="text-white" /> : <Menu size={18} className="text-white" />}
+          {open ? <X size={18} className="text-[#0A1628]" /> : <Menu size={18} className="text-[#0A1628]" />}
         </button>
       </div>
 
@@ -76,9 +76,9 @@ export default function NavBar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-gradient-to-b from-mentora-primary via-mentora-accent to-mentora-secondary"
+            className="md:hidden bg-gradient-to-b from-white via-gray-50 to-white border-t border-gray-200"
           >
-            <div className="space-y-3 border-t border-mentora-secondary/30 px-6 pb-6 pt-4">
+            <div className="space-y-3 px-6 pb-6 pt-4">
               {navItems.map(({ label, href }, idx) => (
                 <motion.div
                   key={href}
@@ -90,7 +90,7 @@ export default function NavBar() {
                   <Link
                     to={href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-4 py-3 text-sm font-bold text-white hover:bg-white/20 transition"
+                    className="block rounded-xl px-4 py-3 text-sm font-bold text-[#0A1628] hover:bg-gray-100 transition"
                   >
                     {label}
                   </Link>
@@ -105,7 +105,7 @@ export default function NavBar() {
                 <Link
                   to="/profile"
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl bg-mentora-secondary px-4 py-3 text-center text-sm font-bold text-mentora-primary hover:bg-mentora-secondary-light transition"
+                  className="block rounded-xl bg-[#1E5EFF] px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#3B72FF] transition"
                 >
                   Launch Profile
                 </Link>

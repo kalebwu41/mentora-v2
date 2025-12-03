@@ -25,7 +25,7 @@ export default function Pathaways() {
     <div className="grid gap-6 lg:grid-cols-[320px,_1fr]">
       <aside className="space-y-4">
         <SectionTitle>
-          <h2 className="text-xl font-bold text-mentora-primary">Pathways</h2>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">Pathways</h2>
         </SectionTitle>
         <StaggerContainer delay={0.08}>
           {pathawayCatalog.map((pathway) => (
@@ -36,13 +36,13 @@ export default function Pathaways() {
         </StaggerContainer>
         {latest && (
           <motion.div
-            className="rounded-3xl bg-white/80 p-4 text-sm"
+            className="rounded-3xl bg-[var(--surface)] p-4 text-sm border border-[var(--accent)]/20"
             {...MOTION.transitions.slideUpFade()}
             whileHover={MOTION.hover.lift}
           >
-            <p className="text-xs uppercase tracking-wide text-mentora-accent">Latest score</p>
-            <p className="text-2xl font-bold">{latest.score}</p>
-            <p className="text-sm text-mentora-muted">{latest.reflection}</p>
+            <p className="text-xs uppercase tracking-wide text-[var(--accent)]">Latest score</p>
+            <p className="text-2xl font-bold text-[var(--text-primary)]">{latest.score}</p>
+            <p className="text-sm text-[var(--text-secondary)]">{latest.reflection}</p>
           </motion.div>
         )}
       </aside>
