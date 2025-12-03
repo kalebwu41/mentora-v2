@@ -12,22 +12,22 @@ export default {
       },
       colors: {
         mentora: {
-          // Primary brand colors
+          // Primary brand colors (deep navy)
           primary: '#0E3A77',
           'primary-dark': '#0A2347',
           'primary-light': '#1A5FC1',
-          
-          // Accent colors
-          accent: '#1A5FC1',
-          'accent-bright': '#2563EB',
-          'accent-light': '#60A5FA',
+
+          // Accent colors (light blue highlight)
+          accent: '#AEE8FF',
+          'accent-bright': '#7FE0FF',
+          'accent-light': '#DFF8FF',
           
           // Secondary colors
           secondary: '#F59E0B',
           'secondary-light': '#FBBF24',
           
           // Background colors
-          background: '#F7FAFD',
+          background: '#FFFFFF',
           'bg-dark': '#0F1419',
           'bg-card': '#FFFFFF',
           
