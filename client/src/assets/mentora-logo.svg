@@ -1,51 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
-  <!-- Light blue circle background -->
-  <circle cx="150" cy="150" r="150" fill="#BFE6F0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Soft gradient background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F4F8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4E9F2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
 
-  <!-- Person silhouette (clean dark blue) -->
-  <g fill="#0E4A66">
-    <!-- Head (perfect circle) -->
-    <circle cx="150" cy="100" r="32"/>
+  <circle cx="200" cy="200" r="200" fill="url(#bgGradient)"/>
 
-    <!-- Ears -->
-    <ellipse cx="120" cy="103" rx="7" ry="11"/>
-    <ellipse cx="180" cy="103" rx="7" ry="11"/>
+  <!-- Natural person silhouette -->
+  <g fill="#0F1F3D">
+    <!-- Head - more natural oval -->
+    <ellipse cx="200" cy="125" rx="38" ry="42"/>
 
-    <!-- Shoulders and upper torso (smooth curve) -->
-    <path d="M 110 132 Q 110 125, 125 125 L 175 125 Q 190 125, 190 132 L 190 175 L 110 175 Z"/>
+    <!-- Neck -->
+    <path d="M 185 162 L 185 178 Q 185 182, 189 182 L 211 182 Q 215 182, 215 178 L 215 162 Z"/>
+
+    <!-- Torso - natural shoulder slope -->
+    <path d="M 145 185 Q 155 180, 170 180 L 230 180 Q 245 180, 255 185 L 255 250 Q 255 255, 250 258 L 150 258 Q 145 255, 145 250 Z"/>
+
+    <!-- Left arm - natural curve -->
+    <path d="M 145 200 Q 130 205, 125 225 L 125 245 Q 125 250, 130 252 L 145 252 L 145 200 Z"/>
+
+    <!-- Right arm - natural curve -->
+    <path d="M 255 200 L 255 252 L 270 252 Q 275 250, 275 245 L 275 225 Q 270 205, 255 200 Z"/>
   </g>
 
-  <!-- White collar/neckline (smooth V-shape) -->
-  <path d="M 102 170 Q 125 162, 150 160 Q 175 162, 198 170 L 198 180 L 102 180 Z" fill="#FFFFFF"/>
-
-  <!-- Open book -->
+  <!-- Book - realistic proportions -->
   <g>
-    <!-- Left page (darker blue with smooth curve) -->
-    <path d="M 85 180 L 85 255 Q 85 260, 90 263 L 148 248 L 148 180 Q 135 182, 85 180 Z" fill="#1E88B5"/>
+    <!-- Book base shadow -->
+    <ellipse cx="200" cy="298" rx="78" ry="8" fill="#0F1F3D" opacity="0.12"/>
 
-    <!-- Right page (lighter blue with smooth curve) -->
-    <path d="M 152 180 L 152 248 L 210 263 Q 215 260, 215 255 L 215 180 Q 165 182, 152 180 Z" fill="#42A5D5"/>
+    <!-- Left page - darker blue -->
+    <path d="M 122 235 L 122 290 Q 122 294, 126 296 L 198 285 L 198 235 Q 185 236, 122 235 Z"
+          fill="#5B9BD5" opacity="0.95"/>
 
-    <!-- Center spine/fold (subtle) -->
-    <rect x="148" y="180" width="4" height="68" fill="#0E4A66" opacity="0.2"/>
+    <!-- Right page - lighter blue -->
+    <path d="M 202 235 L 202 285 L 274 296 Q 278 294, 278 290 L 278 235 Q 215 236, 202 235 Z"
+          fill="#7DB3E0"/>
 
-    <!-- Book bottom edge shadow -->
-    <ellipse cx="150" cy="263" rx="65" ry="5" fill="#0E4A66" opacity="0.1"/>
+    <!-- Center spine with gradient -->
+    <rect x="198" y="235" width="4" height="50" fill="#0F1F3D" opacity="0.25"/>
 
-    <!-- Page lines (left page - subtle) -->
-    <g stroke="#0E4A66" stroke-width="1.5" opacity="0.12" stroke-linecap="round">
-      <line x1="100" y1="200" x2="135" y2="202"/>
-      <line x1="100" y1="212" x2="135" y2="214"/>
-      <line x1="100" y1="224" x2="135" y2="226"/>
-      <line x1="100" y1="236" x2="135" y2="238"/>
+    <!-- Subtle page curl left -->
+    <path d="M 122 235 Q 125 234, 128 235 L 198 235 L 198 238 L 125 238 Q 122 237, 122 235 Z"
+          fill="#FFFFFF" opacity="0.15"/>
+
+    <!-- Subtle page curl right -->
+    <path d="M 202 235 L 272 235 Q 275 234, 278 235 Q 278 237, 275 238 L 202 238 Z"
+          fill="#FFFFFF" opacity="0.25"/>
+
+    <!-- Text lines on left page - subtle and realistic -->
+    <g stroke="#0F1F3D" stroke-width="1.5" opacity="0.18" stroke-linecap="round">
+      <line x1="138" y1="248" x2="185" y2="249"/>
+      <line x1="138" y1="256" x2="185" y2="257"/>
+      <line x1="138" y1="264" x2="182" y2="265"/>
+      <line x1="138" y1="272" x2="185" y2="273"/>
+      <line x1="138" y1="280" x2="178" y2="281"/>
     </g>
 
-    <!-- Page lines (right page - subtle white) -->
-    <g stroke="#FFFFFF" stroke-width="1.5" opacity="0.25" stroke-linecap="round">
-      <line x1="165" y1="202" x2="200" y2="200"/>
-      <line x1="165" y1="214" x2="200" y2="212"/>
-      <line x1="165" y1="226" x2="200" y2="224"/>
-      <line x1="165" y1="238" x2="200" y2="236"/>
+    <!-- Text lines on right page - white for contrast -->
+    <g stroke="#FFFFFF" stroke-width="1.5" opacity="0.35" stroke-linecap="round">
+      <line x1="215" y1="249" x2="262" y2="248"/>
+      <line x1="215" y1="257" x2="262" y2="256"/>
+      <line x1="218" y1="265" x2="262" y2="264"/>
+      <line x1="215" y1="273" x2="262" y2="272"/>
+      <line x1="222" y1="281" x2="262" y2="280"/>
     </g>
+
+    <!-- Book depth/thickness on edges -->
+    <path d="M 126 296 L 130 298 L 200 287 L 198 285 Z" fill="#3D7FA8" opacity="0.6"/>
+    <path d="M 274 296 L 270 298 L 200 287 L 202 285 Z" fill="#5BA8CE" opacity="0.7"/>
   </g>
 </svg>
