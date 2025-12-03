@@ -24,12 +24,12 @@ export default {
             white: '#FFFFFF',
           },
 
-          // Text colors
-          text: '#F2F6FC',
-          'text-secondary': '#A9B9D9',
-          'text-muted': '#697B95',
-          'text-dark': '#0F1F3D',
-          'text-on-light': '#4A5568',
+          // Text colors (WCAG AA compliant)
+          text: '#FFFFFF',
+          'text-secondary': '#E2E8F0',
+          'text-muted': '#94A3B8',
+          'text-dark': '#1A202C', // Darker for 12:1 contrast on white
+          'text-on-light': '#334155', // Dark slate for 8:1 contrast on white
 
           // Accent Blue
           accent: '#5B9BD5',
@@ -73,8 +73,8 @@ export default {
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #0F1F3D 0%, #1C4E80 100%)',
         'gradient-accent': 'linear-gradient(135deg, #5B9BD5 0%, #7DB3E0 100%)',
-        'gradient-neutral': 'linear-gradient(180deg, #F6F9FC 0%, #ECF3FA 100%)',
-        'gradient-neutral-reverse': 'linear-gradient(180deg, #FFFFFF 0%, #F6F9FC 100%)',
+        'gradient-neutral': 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)', // Cleaner white gradient
+        'gradient-neutral-reverse': 'linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%)', // Pure white
         'gradient-hero': 'linear-gradient(180deg, #0F1F3D 0%, #0A1628 100%)',
       },
     },

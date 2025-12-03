@@ -42,7 +42,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.15] tracking-tight text-mentora-text -tracking-[0.02em]"
+            className="text-4xl md:text-5xl lg:text-[56px] font-extrabold leading-[1.15] tracking-tight text-mentora-text -tracking-[0.02em]"
           >
             Navigate Your Career with Intelligence
           </motion.h2>
@@ -52,7 +52,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="text-xl md:text-2xl font-light leading-relaxed text-mentora-text/80 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl font-medium leading-relaxed text-mentora-text-secondary max-w-3xl mx-auto"
           >
             AI-powered roadmaps meet expert mentorship. Build skills that matter, ship real work, and accelerate your future.
           </motion.p>
@@ -100,7 +100,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="text-[16px] text-mentora-text/60 pt-2"
+            className="text-[16px] text-mentora-text-secondary font-medium pt-2"
           >
             ✨ No credit card required
           </motion.p>
