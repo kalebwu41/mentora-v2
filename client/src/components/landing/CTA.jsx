@@ -9,7 +9,7 @@ export default function CTA() {
     <section ref={ref} className="w-full py-32 relative overflow-hidden bg-gradient-hero">
       {/* Radial gradient accent at top */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,182,55,0.08)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(91,155,213,0.08)_0%,transparent_50%)]" />
       </div>
 
       {/* Vignette effect */}

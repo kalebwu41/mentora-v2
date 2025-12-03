@@ -31,15 +31,15 @@ export default {
           'text-dark': '#0F1F3D',
           'text-on-light': '#4A5568',
 
-          // Accent Yellow
-          accent: '#FFB637',
-          'accent-bright': '#FFC852',
-          'accent-glow': 'rgba(255, 182, 55, 0.3)',
+          // Accent Blue
+          accent: '#5B9BD5',
+          'accent-bright': '#7DB3E0',
+          'accent-glow': 'rgba(91, 155, 213, 0.3)',
 
           // Legacy support (keep old secondary references)
-          secondary: '#FFB637',
-          'secondary-light': '#FFC852',
-          'accent-light': '#FFC852',
+          secondary: '#5B9BD5',
+          'secondary-light': '#7DB3E0',
+          'accent-light': '#7DB3E0',
 
           // Background colors
           background: '#0F1F3D',
@@ -65,14 +65,14 @@ export default {
         'soft-lg': '0 12px 32px rgba(0,0,0,0.15)',
         'card': '0 2px 8px rgba(15, 31, 61, 0.04)',
         'card-hover': '0 12px 32px rgba(15, 31, 61, 0.12)',
-        'button': '0 8px 20px rgba(255, 182, 55, 0.3)',
-        'button-hover': '0 12px 32px rgba(255, 182, 55, 0.4)',
-        'brand': '0 8px 24px rgba(255, 182, 55, 0.3)',
-        'accent-glow': '0 0 24px rgba(255, 182, 55, 0.2)',
+        'button': '0 8px 20px rgba(91, 155, 213, 0.3)',
+        'button-hover': '0 12px 32px rgba(91, 155, 213, 0.4)',
+        'brand': '0 8px 24px rgba(91, 155, 213, 0.3)',
+        'accent-glow': '0 0 24px rgba(91, 155, 213, 0.2)',
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #0F1F3D 0%, #1C4E80 100%)',
-        'gradient-yellow': 'linear-gradient(135deg, #FFB637 0%, #FFC852 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #5B9BD5 0%, #7DB3E0 100%)',
         'gradient-neutral': 'linear-gradient(180deg, #F6F9FC 0%, #ECF3FA 100%)',
         'gradient-neutral-reverse': 'linear-gradient(180deg, #FFFFFF 0%, #F6F9FC 100%)',
         'gradient-hero': 'linear-gradient(180deg, #0F1F3D 0%, #0A1628 100%)',
