@@ -37,13 +37,13 @@ function TaskBoard() {
 
   return (
     <motion.div
-      className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+      className="rounded-3xl border border-[var(--accent)]/20 bg-[var(--surface)] p-5"
       {...MOTION.transitions.slideUpFade()}
       whileHover={MOTION.hover.lift}
     >
       <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-mentora-accent">Upcoming Actions</p>
-        <p className="text-xs text-mentora-muted">Drag to reorder</p>
+        <p className="text-sm font-semibold text-[var(--accent)]">Upcoming Actions</p>
+        <p className="text-xs text-[var(--text-secondary)]">Drag to reorder</p>
       </div>
       <motion.ul className="mt-4 space-y-3" variants={MOTION.staggerContainer(0.05)} initial="hidden" animate="visible">
         {tasks.map((task) => (
@@ -53,15 +53,15 @@ function TaskBoard() {
             onDragStart={() => handleDragStart(task.id)}
             onDragOver={(e) => handleDragOver(e, task.id)}
             onDrop={handleDrop}
-            className="rounded-2xl border border-mentora-primary/10 bg-white px-4 py-3 text-sm shadow-sm cursor-move"
+            className="rounded-2xl border border-[var(--accent)]/20 bg-[var(--surface)] px-4 py-3 text-sm shadow-sm cursor-move"
             variants={MOTION.staggerChild}
             whileHover={{ x: 4, ...MOTION.hover.shadow }}
           >
             <div className="flex items-center justify-between">
-              <p className="font-semibold">{task.label}</p>
-              <span className="text-xs text-mentora-muted">{task.targetDate}</span>
+              <p className="font-semibold text-[var(--text-primary)]">{task.label}</p>
+              <span className="text-xs text-[var(--text-secondary)]">{task.targetDate}</span>
             </div>
-            <p className="text-xs text-mentora-muted">
+            <p className="text-xs text-[var(--text-secondary)]">
               Due: {task.due} · Impact: {task.impact}
             </p>
           </motion.li>
@@ -75,18 +75,18 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <SectionTitle>
-        <h1 className="text-3xl font-bold text-mentora-primary">Your Dashboard</h1>
+        <h1 className="text-3xl font-bold text-[var(--text-primary)]">Your Dashboard</h1>
       </SectionTitle>
 
       <div className="grid gap-6 md:grid-cols-[minmax(0,_1.2fr),_360px]">
-        <AnimatedCard className="rounded-3xl border border-mentora-primary/10 bg-white/90 p-6">
-          <p className="text-sm font-semibold text-mentora-accent">Skill Map</p>
+        <AnimatedCard className="rounded-3xl border border-[var(--accent)]/20 bg-[var(--surface)] p-6">
+          <p className="text-sm font-semibold text-[var(--accent)]">Skill Map</p>
           <motion.div className="mt-4 h-72" animate={MOTION.continuous.pulse(3)}>
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={skillConstellation}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="skill" tick={{ fill: '#0B1C33', fontSize: 12 }} />
-                <Radar name="Skill Levels" dataKey="score" stroke="#1A5FC1" fill="#1A5FC1" fillOpacity={0.3} />
+                <PolarGrid stroke="rgba(242, 246, 252, 0.1)" />
+                <PolarAngleAxis dataKey="skill" tick={{ fill: 'var(--text-primary)', fontSize: 12 }} />
+                <Radar name="Skill Levels" dataKey="score" stroke="var(--accent)" fill="var(--accent)" fillOpacity={0.2} />
               </RadarChart>
             </ResponsiveContainer>
           </motion.div>
@@ -99,17 +99,17 @@ export default function Dashboard() {
           {podActivityPeek.map((pod) => (
             <motion.div
               key={pod.pod}
-              className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+              className="rounded-3xl border border-[var(--accent)]/20 bg-[var(--surface)] p-5"
               variants={MOTION.staggerChild}
               whileHover={MOTION.hover.lift}
             >
-              <p className="text-xs uppercase tracking-wide text-mentora-accent">{pod.pod}</p>
-              <p className="mt-2 text-sm text-mentora-muted">{pod.highlight}</p>
+              <p className="text-xs uppercase tracking-wide text-[var(--accent)]">{pod.pod}</p>
+              <p className="mt-2 text-sm text-[var(--text-secondary)]">{pod.highlight}</p>
               <motion.div className="mt-4 flex gap-2 text-2xl">
                 {pod.avatars.map((avatar) => (
                   <motion.span
                     key={avatar}
-                    className="rounded-2xl bg-mentora-accent/10 px-3 py-1"
+                    className="rounded-2xl bg-[var(--accent)]/10 px-3 py-1"
                     whileHover={{ scale: 1.1, rotateZ: 5 }}
                   >
                     {avatar}

@@ -39,24 +39,24 @@ export default function Pods() {
           {podChannels.map((pod) => (
             <motion.div
               key={pod.id}
-              className="rounded-3xl border border-mentora-primary/10 bg-white/80 p-5"
+              className="rounded-3xl border border-[var(--accent)]/20 bg-[var(--surface)] p-5"
               variants={MOTION.staggerContainer(0).children}
-              whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(0, 0, 0, 0.15)' }}
+              whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(30, 94, 255, 0.15)' }}
             >
-              <p className="text-xs font-semibold uppercase tracking-wide text-mentora-accent">{pod.title}</p>
-              <p className="mt-2 text-sm text-mentora-muted">{pod.description}</p>
-              <div className="mt-3 flex flex-wrap gap-2 text-xs text-mentora-muted">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--accent)]">{pod.title}</p>
+              <p className="mt-2 text-sm text-[var(--text-secondary)]">{pod.description}</p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
                 {pod.tags.map((tag) => (
                   <motion.span
                     key={tag}
-                    className="rounded-full bg-white px-2 py-1 text-mentora-primary/80"
+                    className="rounded-full bg-[var(--accent)]/10 px-2 py-1 text-[var(--accent)]"
                     whileHover={{ scale: 1.05 }}
                   >
                     {tag}
                   </motion.span>
                 ))}
               </div>
-              <p className="mt-2 text-xs text-mentora-muted">Activity: {pod.activity}%</p>
+              <p className="mt-2 text-xs text-[var(--text-secondary)]">Activity: {pod.activity}%</p>
             </motion.div>
           ))}
         </div>
