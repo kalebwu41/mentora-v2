@@ -53,7 +53,7 @@ export default function HowItWorks() {
             >
               <div className="flex-shrink-0">
                 <motion.div
-                  className="flex items-center justify-center w-16 h-16 rounded-full bg-mentora-accent text-mentora-primary shadow-[0_4px_16px_rgba(255,182,55,0.25)]"
+                  className="flex items-center justify-center w-16 h-16 rounded-full bg-mentora-accent text-white shadow-[0_4px_16px_rgba(91,155,213,0.25)]"
                   whileHover={{ scale: 1.08 }}
                   transition={{ duration: 0.3 }}
                 >
