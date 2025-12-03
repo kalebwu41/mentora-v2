@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
-    <div className="w-full min-h-screen bg-white overflow-hidden relative">
+    <div className="w-full min-h-screen overflow-hidden relative">
+      {/* Optional hero media - place a `hero-loop.webm` file in `client/public/assets/` */}
+      <video className="hero-video" playsInline autoPlay muted loop preload="auto">
+        <source src="/assets/hero-loop.webm" type="video/webm" />
+        <source src="/assets/hero-loop.mp4" type="video/mp4" />
+      </video>
+      <div className="hero-overlay" />
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,#2c5282_0%,transparent_50%)]" />
@@ -21,7 +27,7 @@ export default function HeroSection() {
         >
           <Link
             to="/pathaways"
-            className="text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors duration-300 uppercase tracking-wider"
+            className="text-sm font-semibold text-[var(--text-light)] hover:text-[var(--text-dark)] transition-colors duration-300 uppercase tracking-wider"
           >
             Explore →
           </Link>
@@ -36,7 +42,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="space-y-6"
           >
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-gray-900">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-[var(--text-dark)]">
               Mentora
             </h1>
 
@@ -51,7 +57,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="text-2xl md:text-2xl font-light leading-relaxed text-gray-700 max-w-3xl mx-auto"
+            className="text-2xl md:text-2xl font-light leading-relaxed text-[var(--text-light)] max-w-3xl mx-auto"
           >
             Intelligent career navigation powered by AI and expert mentorship
           </motion.p>
