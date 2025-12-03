@@ -12,60 +12,70 @@ export default {
       },
       colors: {
         mentora: {
-          // Primary brand colors (deep navy background)
-          primary: '#0A1628',
-          'primary-dark': '#030A13',
-          'primary-light': '#1A4D99',
+          // Primary Navy
+          primary: '#0F1F3D',
+          'primary-dark': '#0A1628',
+          'primary-light': '#1C4E80',
 
-          // Accent colors (Mentora blue)
-          accent: '#1E5EFF',
-          'accent-hover': '#3B72FF',
-          'accent-light': 'rgba(30, 94, 255, 0.1)',
-          
-          // Text colors (high contrast for accessibility)
+          // Neutral Backgrounds (for light sections)
+          neutral: {
+            50: '#F6F9FC',
+            100: '#ECF3FA',
+            white: '#FFFFFF',
+          },
+
+          // Text colors
           text: '#F2F6FC',
           'text-secondary': '#A9B9D9',
           'text-muted': '#697B95',
-          
-          // Secondary colors
-          secondary: '#F59E0B',
-          'secondary-light': '#FBBF24',
-          
+          'text-dark': '#0F1F3D',
+          'text-on-light': '#4A5568',
+
+          // Accent Yellow
+          accent: '#FFB637',
+          'accent-bright': '#FFC852',
+          'accent-glow': 'rgba(255, 182, 55, 0.3)',
+
+          // Legacy support (keep old secondary references)
+          secondary: '#FFB637',
+          'secondary-light': '#FFC852',
+          'accent-light': '#FFC852',
+
           // Background colors
-          background: '#0A1628',
+          background: '#0F1F3D',
           'bg-dark': '#0A1628',
-          'bg-card': '#0A1628',
-          
+          'bg-card': '#FFFFFF',
+
           // Surface colors
-          surface: '#0A1628',
-          'surface-dark': '#030A13',
+          surface: '#0F1F3D',
+          'surface-dark': '#0A1628',
           'surface-light': 'rgba(242, 246, 252, 0.05)',
-          
+
           // Semantic colors
           success: '#10B981',
           warning: '#F59E0B',
           error: '#EF4444',
           info: '#1E5EFF',
-          
-          // Gradients (via gradient-to-r, etc.)
-          gradient: {
-            'primary-to-accent': 'from-mentora-primary to-mentora-accent',
-            'secondary-to-primary': 'from-mentora-secondary to-mentora-primary',
-          },
-          
+
           muted: '#A9B9D9',
         },
       },
       boxShadow: {
         soft: '0 6px 18px rgba(0,0,0,0.3)',
         'soft-lg': '0 12px 32px rgba(0,0,0,0.15)',
-        'brand': '0 8px 24px rgba(30, 94, 255, 0.3)',
-        'accent-glow': '0 0 24px rgba(30, 94, 255, 0.2)',
+        'card': '0 2px 8px rgba(15, 31, 61, 0.04)',
+        'card-hover': '0 12px 32px rgba(15, 31, 61, 0.12)',
+        'button': '0 8px 20px rgba(255, 182, 55, 0.3)',
+        'button-hover': '0 12px 32px rgba(255, 182, 55, 0.4)',
+        'brand': '0 8px 24px rgba(255, 182, 55, 0.3)',
+        'accent-glow': '0 0 24px rgba(255, 182, 55, 0.2)',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #0A1628 0%, #1A4D99 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #1E5EFF 0%, #3B72FF 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #0F1F3D 0%, #1C4E80 100%)',
+        'gradient-yellow': 'linear-gradient(135deg, #FFB637 0%, #FFC852 100%)',
+        'gradient-neutral': 'linear-gradient(180deg, #F6F9FC 0%, #ECF3FA 100%)',
+        'gradient-neutral-reverse': 'linear-gradient(180deg, #FFFFFF 0%, #F6F9FC 100%)',
+        'gradient-hero': 'linear-gradient(180deg, #0F1F3D 0%, #0A1628 100%)',
       },
     },
     container: {
