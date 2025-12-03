@@ -2,45 +2,50 @@
   <!-- Light blue circle background -->
   <circle cx="150" cy="150" r="150" fill="#BFE6F0"/>
 
-  <!-- Person silhouette (dark navy blue) -->
-  <g transform="translate(150, 105)">
-    <!-- Head (circular) -->
-    <circle cx="0" cy="0" r="32" fill="#15557A"/>
+  <!-- Person silhouette (clean dark blue) -->
+  <g fill="#0E4A66">
+    <!-- Head (perfect circle) -->
+    <circle cx="150" cy="100" r="32"/>
 
-    <!-- Left ear -->
-    <ellipse cx="-29" cy="3" rx="8" ry="12" fill="#15557A"/>
+    <!-- Ears -->
+    <ellipse cx="120" cy="103" rx="7" ry="11"/>
+    <ellipse cx="180" cy="103" rx="7" ry="11"/>
 
-    <!-- Right ear -->
-    <ellipse cx="29" cy="3" rx="8" ry="12" fill="#15557A"/>
-
-    <!-- Shoulders and upper body -->
-    <path d="M -40 32 Q -40 25, -20 25 L 20 25 Q 40 25, 40 32 L 40 70 L -40 70 Z" fill="#15557A"/>
+    <!-- Shoulders and upper torso (smooth curve) -->
+    <path d="M 110 132 Q 110 125, 125 125 L 175 125 Q 190 125, 190 132 L 190 175 L 110 175 Z"/>
   </g>
 
-  <!-- Open book with white neckline -->
-  <g transform="translate(150, 175)">
-    <!-- White curved neckline/collar -->
-    <path d="M -48 -5 Q -35 -12, 0 -15 Q 35 -12, 48 -5 L 48 8 L -48 8 Z" fill="#FFFFFF"/>
+  <!-- White collar/neckline (smooth V-shape) -->
+  <path d="M 102 170 Q 125 162, 150 160 Q 175 162, 198 170 L 198 180 L 102 180 Z" fill="#FFFFFF"/>
 
-    <!-- Left page of book (medium blue) -->
-    <path d="M -60 8 L -60 80 Q -60 84, -56 86 L -2 72 L -2 8 Q -15 10, -60 8 Z" fill="#1F8FB8"/>
+  <!-- Open book -->
+  <g>
+    <!-- Left page (darker blue with smooth curve) -->
+    <path d="M 85 180 L 85 255 Q 85 260, 90 263 L 148 248 L 148 180 Q 135 182, 85 180 Z" fill="#1E88B5"/>
 
-    <!-- Right page of book (lighter blue) -->
-    <path d="M 2 8 L 2 72 L 56 86 Q 60 84, 60 80 L 60 8 Q 15 10, 2 8 Z" fill="#3CAAD5"/>
+    <!-- Right page (lighter blue with smooth curve) -->
+    <path d="M 152 180 L 152 248 L 210 263 Q 215 260, 215 255 L 215 180 Q 165 182, 152 180 Z" fill="#42A5D5"/>
 
-    <!-- Center spine/fold -->
-    <rect x="-2" y="8" width="4" height="64" fill="#15557A" opacity="0.25"/>
+    <!-- Center spine/fold (subtle) -->
+    <rect x="148" y="180" width="4" height="68" fill="#0E4A66" opacity="0.2"/>
 
-    <!-- Left page lines -->
-    <line x1="-45" y1="26" x2="-18" y2="28" stroke="#15557A" stroke-width="2" opacity="0.15"/>
-    <line x1="-45" y1="38" x2="-18" y2="40" stroke="#15557A" stroke-width="2" opacity="0.15"/>
-    <line x1="-45" y1="50" x2="-18" y2="52" stroke="#15557A" stroke-width="2" opacity="0.15"/>
-    <line x1="-45" y1="62" x2="-18" y2="64" stroke="#15557A" stroke-width="2" opacity="0.15"/>
+    <!-- Book bottom edge shadow -->
+    <ellipse cx="150" cy="263" rx="65" ry="5" fill="#0E4A66" opacity="0.1"/>
 
-    <!-- Right page lines -->
-    <line x1="18" y1="28" x2="45" y2="26" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
-    <line x1="18" y1="40" x2="45" y2="38" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
-    <line x1="18" y1="52" x2="45" y2="50" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
-    <line x1="18" y1="64" x2="45" y2="62" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
+    <!-- Page lines (left page - subtle) -->
+    <g stroke="#0E4A66" stroke-width="1.5" opacity="0.12" stroke-linecap="round">
+      <line x1="100" y1="200" x2="135" y2="202"/>
+      <line x1="100" y1="212" x2="135" y2="214"/>
+      <line x1="100" y1="224" x2="135" y2="226"/>
+      <line x1="100" y1="236" x2="135" y2="238"/>
+    </g>
+
+    <!-- Page lines (right page - subtle white) -->
+    <g stroke="#FFFFFF" stroke-width="1.5" opacity="0.25" stroke-linecap="round">
+      <line x1="165" y1="202" x2="200" y2="200"/>
+      <line x1="165" y1="214" x2="200" y2="212"/>
+      <line x1="165" y1="226" x2="200" y2="224"/>
+      <line x1="165" y1="238" x2="200" y2="236"/>
+    </g>
   </g>
 </svg>
