@@ -33,10 +33,10 @@ export default function HowItWorks() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="text-5xl md:text-[52px] font-bold text-mentora-text-dark mb-4 leading-tight">
+            <h2 className="text-5xl md:text-[52px] font-extrabold text-mentora-text-dark mb-4 leading-tight">
               How It Works
             </h2>
-            <p className="text-xl md:text-[22px] text-mentora-text-on-light max-w-[700px] mx-auto font-medium leading-relaxed">
+            <p className="text-xl md:text-[22px] text-mentora-text-on-light max-w-[700px] mx-auto font-semibold leading-relaxed">
               From first roadmap to shipped project in four simple steps.
             </p>
           </motion.div>
@@ -61,10 +61,10 @@ export default function HowItWorks() {
                 </motion.div>
               </div>
               <div className="pt-2">
-                <h3 className="text-2xl font-semibold text-mentora-text-dark mb-3 leading-tight">
+                <h3 className="text-2xl font-bold text-mentora-text-dark mb-3 leading-tight">
                   {step.title}
                 </h3>
-                <p className="text-lg text-mentora-text-on-light font-normal leading-[1.7]">
+                <p className="text-lg text-mentora-text-on-light font-medium leading-[1.7]">
                   {step.description}
                 </p>
               </div>
