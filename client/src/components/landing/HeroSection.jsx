@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Button from '../ui/Button.jsx';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
@@ -55,7 +56,7 @@ export default function HeroSection() {
             Intelligent career navigation powered by AI and expert mentorship
           </motion.p>
 
-          {/* Subtitle */}
+          {/* Supporting text */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,12 +73,9 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
             className="pt-6"
           >
-            <Link
-              to="/roadmap"
-              className="inline-block px-12 py-4 rounded-sm bg-gray-900 text-white font-semibold text-base hover:bg-gray-800 transition-colors duration-300 shadow-sm hover:shadow-md"
-            >
+            <Button to="/roadmap" className="px-10 py-4 text-lg">
               Get Started
-            </Link>
+            </Button>
           </motion.div>
         </div>
 
