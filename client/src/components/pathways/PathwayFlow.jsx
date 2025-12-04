@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Upload, Link as LinkIcon, FileText, CheckCircle, AlertCircle, Sparkles, Clock, Target } from 'lucide-react';
 import usePathaway from '../../hooks/usePathaway.js';
 import useSubmissionStatus from '../../hooks/useSubmissionStatus.js';
+import DebuggingChallengeView from './DebuggingChallengeView.jsx';
 import toast from 'react-hot-toast';
 
 export default function PathwayFlow({ pathway, onComplete }) {
@@ -89,6 +90,9 @@ export default function PathwayFlow({ pathway, onComplete }) {
     toast.success('Step submitted and marked for mentor review');
   }
 
+  // Check if current step has debugging challenge
+  const hasDebuggingChallenge = currentStep?.debuggingChallenge;
+
   return (
     <div className="space-y-8">
       {/* Active Pathway Header */}
@@ -138,7 +142,12 @@ export default function PathwayFlow({ pathway, onComplete }) {
         )}
       </motion.div>
 
-      {!completed && (
+      {/* Debugging Challenge View (if present) */}
+      {!completed && hasDebuggingChallenge && (
+        <DebuggingChallengeView challenge={currentStep.debuggingChallenge} />
+      )}
+
+      {!completed && !hasDebuggingChallenge && (
         <div className="grid lg:grid-cols-[1fr_360px] gap-8">
           {/* Main Task Area */}
           <motion.div

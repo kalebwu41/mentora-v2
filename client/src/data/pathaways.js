@@ -8,6 +8,155 @@ export const pathawayCatalog = [
         title: 'Debugging Project — Reproduce & Patch',
         description: 'Reproduce a flaky production bug from the sample repo, add structured logging, and implement a tested hotfix.',
         deliverable: 'Pull request with failing→passing repro, unit + e2e tests, and README reproduction steps',
+        // Complex debugging challenge data
+        debuggingChallenge: {
+          title: 'Mentora Shop — Black Friday Debugging Challenge',
+          scenario: 'E-commerce platform experiencing critical failures during Black Friday. Users report duplicate orders, wrong cart items, and severe performance degradation. Your mission: identify and fix all interconnected bugs within 48 hours.',
+          timeEstimate: '12-18 hours',
+          complexity: 'Production-Grade',
+          bugLayers: '4-5 layers',
+          missionBrief: 'Mentora Shop is a microservices-based e-commerce platform. A recent deployment introduced multiple regressions affecting cart management, order processing, and system performance. You must systematically debug the issues using logs, metrics, and code analysis, then implement comprehensive fixes with tests.',
+          techStack: [
+            'Backend: Node.js + TypeScript (Express API)',
+            'Database: PostgreSQL with complex queries',
+            'Cache: Redis for session/cart management',
+            'Worker: Bull queue for background jobs',
+            'Frontend: React + TypeScript',
+            'Infrastructure: Docker + docker-compose'
+          ],
+          learningObjectives: [
+            'Reproduce complex intermittent bugs',
+            'Debug race conditions and concurrency issues',
+            'Identify N+1 query performance problems',
+            'Fix memory leaks in production code',
+            'Handle stale cache and data consistency',
+            'Write comprehensive integration tests',
+            'Apply systematic debugging methodology'
+          ],
+          userReports: [
+            'My cart shows wrong items after I refresh.',
+            'I got charged twice for one order.',
+            'Order confirmation sometimes missing items.',
+            'Checkout page extremely slow and sometimes times out.',
+            'I uploaded a profile CSV and some records are malformed.'
+          ],
+          systemSymptoms: [
+            'Intermittent incorrect API responses for /cart and /order/:id',
+            'Duplicate order entries in DB for same transaction ID',
+            'Page load latency spikes (p95 > 8s) under moderate load',
+            'Background job logs show records processed twice',
+            'Cache contains stale cart contents for minutes',
+            'Frontend infinite re-render loop for product list',
+            'Misleading "Payment gateway timeout" error messages'
+          ],
+          initialHypothesis: 'Recent deployment introduced changes to caching & background worker concurrency. The combination creates race conditions and stale caches leading to inconsistent cart/order data plus performance issues.',
+          architectureDiagram: `mentora-shop/
+├─ docker-compose.yml
+├─ services/
+│  ├─ api/           # Node.js + TypeScript Express
+│  ├─ worker/        # Bull queue processor
+│  ├─ frontend/      # React + TypeScript SPA
+├─ infra/
+│  ├─ db/schema.sql
+│  └─ monitoring/perf-snapshot.json`,
+          services: [
+            {
+              name: 'API Service',
+              description: 'Express.js REST API handling cart and order operations with Redis caching',
+              technologies: ['Node.js', 'TypeScript', 'Express', 'pg']
+            },
+            {
+              name: 'Worker Service',
+              description: 'Background job processor for order fulfillment and email notifications',
+              technologies: ['Bull', 'Redis', 'Node.js']
+            },
+            {
+              name: 'Frontend',
+              description: 'React single-page application with cart and checkout flows',
+              technologies: ['React', 'TypeScript', 'Vite']
+            },
+            {
+              name: 'PostgreSQL',
+              description: 'Primary database with users, carts, orders, and products tables',
+              technologies: ['PostgreSQL 13']
+            },
+            {
+              name: 'Redis',
+              description: 'Cache layer and job queue management',
+              technologies: ['Redis 6']
+            }
+          ],
+          applicationLogs: `[2025-12-03T20:01:05.124Z] WARN api: Cache parse failed, fallback to DB - Unexpected token o in JSON at position 1
+[2025-12-03T20:01:05.129Z] INFO api: Load cart from DB user=3f8a...
+[2025-12-03T20:01:06.200Z] INFO worker: Processing job id=ab12 user=3f8a order=0f2b...
+[2025-12-03T20:01:06.210Z] INFO api: Inserted order id=0f2b external_txn_id=txn_1234
+[2025-12-03T20:01:06.213Z] ERROR db: duplicate key value violates unique constraint "orders_external_txn_id_idx"
+[2025-12-03T20:01:07.367Z] INFO worker: Processing job id=ab13 user=3f8a order=0f2c...
+[2025-12-03T20:01:07.368Z] INFO worker: cache.set cart:3f8a -> [object Object]
+[2025-12-03T20:01:07.369Z] INFO api: Cache parse failed, fallback to DB - Unexpected token o
+[2025-12-03T20:02:55.000Z] METRICS: p95_response_time=8130ms
+[2025-12-03T20:03:05.000Z] METRICS: heap_usage_mb=680MB`,
+          performanceMetrics: {
+            'requests_per_min': '1200',
+            'error_rate': '4.0%',
+            'p95_latency_ms': '8200ms',
+            'heap_usage_mb': '680 MB',
+            'redis_hits_pct': '62.3%',
+            'db_conn_pool_busy': '85%'
+          },
+          keyObservations: [
+            'Cache has [object Object] logged — object stored instead of JSON string',
+            'Duplicate transaction constraint error occurs (race/double process)',
+            'Payment gateway timeouts appear occasionally',
+            'Heap growing to 680MB — memory leak suspected',
+            'N+1 query pattern visible in order listing endpoint'
+          ],
+          evaluationCriteria: [
+            {
+              category: 'Reproduction',
+              points: 10,
+              description: 'Successfully reproduce all reported issues using provided assets and load tests'
+            },
+            {
+              category: 'Root Cause Analysis',
+              points: 20,
+              description: 'Correctly identify root causes across all layers: cache, database, worker, frontend'
+            },
+            {
+              category: 'Fix Correctness',
+              points: 25,
+              description: 'Fixes are correct, atomic, prevent regressions, and follow best practices'
+            },
+            {
+              category: 'Tests',
+              points: 15,
+              description: 'Add automated tests that prove the issue and verify the fix'
+            },
+            {
+              category: 'Performance',
+              points: 10,
+              description: 'Demonstrate measurable improvement in metrics and add monitoring/alerts'
+            },
+            {
+              category: 'Code Quality',
+              points: 10,
+              description: 'Clean PR, clear commit messages, documentation, and risk analysis'
+            },
+            {
+              category: 'Security (Bonus)',
+              points: 10,
+              description: 'Handle PII correctly, implement idempotency keys, prevent injection attacks'
+            }
+          ],
+          deliverables: [
+            'Short report (1-2 pages) summarizing root causes and fix summary',
+            'Pull request with code changes, tests, and configuration updates',
+            'Before/after performance metrics showing improvement',
+            'System architecture diagram showing call flow before & after fixes',
+            'Video walkthrough (optional, 5-10 min) demonstrating reproduction and fixes'
+          ],
+          repositoryUrl: 'https://github.com/mentora/debugging-challenge-shop.git'
+        }
       },
       {
         title: 'Feature Prototype — End-to-End',
