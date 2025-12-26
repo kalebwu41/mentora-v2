@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Debugging Project | Mentora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS VARIABLES - COLOR PALETTE
+       ======================================== */
+    :root {
+      /* Primary Colors */
+      --color-primary: #5B9BD5;           /* Mentora accent blue */
+      --color-primary-hover: #4A8AC4;     /* Darker blue for hover */
+      --color-primary-light: #E8F4F8;     /* Light blue background */
+
+      /* Neutral Colors */
+      --color-navy: #0F1F3D;              /* Dark navy text */
+      --color-gray-900: #1A202C;          /* Primary text */
+      --color-gray-700: #334155;          /* Secondary text */
+      --color-gray-500: #64748B;          /* Muted text */
+      --color-gray-300: #CBD5E1;          /* Borders */
+      --color-gray-100: #F1F5F9;          /* Light backgrounds */
+      --color-gray-50: #F8FAFC;           /* Lightest backgrounds */
+
+      /* Semantic Colors */
+      --color-success: #10B981;           /* Success green */
+      --color-warning: #F59E0B;           /* Warning orange */
+      --color-error: #EF4444;             /* Error red */
+
+      /* White */
+      --color-white: #FFFFFF;
+
+      /* Spacing Grid (8px baseline) */
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 40px;
+      --space-6: 48px;
+      --space-8: 64px;
+
+      /* Typography */
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-size-xs: 12px;
+      --font-size-sm: 14px;
+      --font-size-base: 16px;
+      --font-size-lg: 18px;
+      --font-size-xl: 20px;
+      --font-size-2xl: 24px;
+      --font-size-3xl: 32px;
+      --font-size-4xl: 40px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+      /* Border Radius */
+      --radius-sm: 6px;
+      --radius: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+
+      /* Transitions */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ========================================
+       RESET & BASE STYLES
+       ======================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      color: var(--color-gray-900);
+      background-color: var(--color-gray-50);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Skip to main content link (accessible) */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-navy);
+      color: var(--color-white);
+      padding: var(--space-1) var(--space-2);
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 100;
+      border-radius: 0 0 var(--radius) 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ========================================
+       HEADER & NAVIGATION
+       ======================================== */
+    .header {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-gray-300);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--space-2) var(--space-3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-decoration: none;
+      color: var(--color-navy);
+      transition: opacity var(--transition-fast);
+    }
+
+    .logo-link:hover {
+      opacity: 0.8;
+    }
+
+    .logo-link:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo-text {
+      font-size: var(--font-size-xl);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+
+    .breadcrumb a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+
+    .breadcrumb a:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ========================================
+       MAIN CONTENT CONTAINER
+       ======================================== */
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-3);
+    }
+
+    /* ========================================
+       PATHWAY HEADER & PROGRESS
+       ======================================== */
+    .pathway-header {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+      box-shadow: var(--shadow);
+    }
+
+    .pathway-title {
+      font-size: var(--font-size-2xl);
+      font-weight: 800;
+      color: var(--color-navy);
+      margin-bottom: var(--space-1);
+    }
+
+    .step-title {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--color-gray-700);
+      margin-bottom: var(--space-3);
+    }
+
+    .progress-container {
+      margin-top: var(--space-3);
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-2);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-gray-700);
+    }
+
+    .progress-percentage {
+      color: var(--color-primary);
+    }
+
+    /* Segmented progress bar */
+    .progress-bar {
+      display: flex;
+      gap: var(--space-1);
+      height: 8px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .progress-segment {
+      flex: 1;
+      background-color: var(--color-gray-200);
+      border-radius: var(--radius-sm);
+      transition: background-color var(--transition-base);
+    }
+
+    .progress-segment.active {
+      background-color: var(--color-primary);
+    }
+
+    .progress-segment.completed {
+      background-color: var(--color-success);
+    }
+
+    /* ========================================
+       TWO-COLUMN LAYOUT
+       ======================================== */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr 360px;
+      }
+    }
+
+    /* ========================================
+       CARD COMPONENT
+       ======================================== */
+    .card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow);
+      margin-bottom: var(--space-4);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .card-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--color-primary);
+    }
+
+    .card-title {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--color-navy);
+    }
+
+    .card-description {
+      color: var(--color-gray-700);
+      line-height: 1.6;
+      margin-bottom: var(--space-3);
+    }
+
+    /* ========================================
+       FILE UPLOAD ZONE
+       ======================================== */
+    .upload-zone {
+      border: 2px dashed var(--color-gray-300);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-4);
+      text-align: center;
+      background-color: var(--color-gray-50);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .upload-zone:hover,
+    .upload-zone:focus-within {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary-light);
+    }
+
+    .upload-zone.dragover {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary-light);
+      transform: scale(1.02);
+    }
+
+    .upload-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--space-2);
+      color: var(--color-primary);
+    }
+
+    .upload-text {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--color-gray-900);
+      margin-bottom: var(--space-1);
+    }
+
+    .upload-subtext {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+
+    .upload-link {
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+
+    .upload-link:hover {
+      color: var(--color-primary-hover);
+    }
+
+    .upload-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* File list */
+    .file-list {
+      margin-top: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2);
+      background-color: var(--color-gray-50);
+      border: 1px solid var(--color-gray-300);
+      border-radius: var(--radius);
+      transition: all var(--transition-fast);
+    }
+
+    .file-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .file-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .file-name {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-gray-900);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .file-size {
+      font-size: var(--font-size-xs);
+      color: var(--color-gray-500);
+    }
+
+    .file-remove {
+      background: none;
+      border: none;
+      color: var(--color-error);
+      cursor: pointer;
+      padding: var(--space-1);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+
+    .file-remove:hover {
+      background-color: var(--color-error);
+      color: var(--color-white);
+    }
+
+    .file-remove:focus-visible {
+      outline: 2px solid var(--color-error);
+      outline-offset: 2px;
+    }
+
+    /* Screen reader announcements */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* ========================================
+       FORM INPUTS
+       ======================================== */
+    .form-group {
+      margin-bottom: var(--space-3);
+    }
+
+    .form-label {
+      display: block;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-gray-900);
+      margin-bottom: var(--space-1);
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: var(--space-2);
+      border: 2px solid var(--color-gray-300);
+      border-radius: var(--radius);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      color: var(--color-gray-900);
+      background-color: var(--color-white);
+      transition: all var(--transition-fast);
+    }
+
+    .form-input:hover,
+    .form-textarea:hover {
+      border-color: var(--color-primary);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.1);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--color-gray-500);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-help {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+      margin-top: var(--space-1);
+    }
+
+    .form-error {
+      font-size: var(--font-size-sm);
+      color: var(--color-error);
+      margin-top: var(--space-1);
+    }
+
+    /* URL input with validation */
+    .input-valid {
+      border-color: var(--color-success);
+    }
+
+    .input-invalid {
+      border-color: var(--color-error);
+    }
+
+    /* ========================================
+       REVIEW PROCESS TIMELINE
+       ======================================== */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: var(--space-2);
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 32px;
+      width: 2px;
+      height: calc(100% + var(--space-3));
+      background-color: var(--color-gray-300);
+    }
+
+    .timeline-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .timeline-icon svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-primary);
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding-top: 2px;
+    }
+
+    .timeline-title {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--color-gray-900);
+      margin-bottom: var(--space-1);
+    }
+
+    .timeline-description {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-700);
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       CHECKLIST
+       ======================================== */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+
+    .checklist-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--color-success);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checklist-text {
+      font-size: var(--font-size-base);
+      color: var(--color-gray-700);
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-1);
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .button:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    .button-primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      box-shadow: var(--shadow);
+    }
+
+    .button-primary:hover:not(:disabled) {
+      background-color: var(--color-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .button-primary:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .button-primary:disabled {
+      background-color: var(--color-gray-300);
+      color: var(--color-gray-500);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .button-secondary {
+      background-color: var(--color-white);
+      color: var(--color-gray-700);
+      border: 2px solid var(--color-gray-300);
+    }
+
+    .button-secondary:hover:not(:disabled) {
+      background-color: var(--color-gray-50);
+      border-color: var(--color-gray-400);
+    }
+
+    .button-secondary:active:not(:disabled) {
+      background-color: var(--color-gray-100);
+    }
+
+    .button-group {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    /* ========================================
+       SIDEBAR / META PANEL
+       ======================================== */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .sidebar-card {
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-white) 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-gray-200);
+    }
+
+    .sidebar-title {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+
+    .sidebar-content {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-700);
+      line-height: 1.6;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .sidebar-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-700);
+    }
+
+    .sidebar-list-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .sidebar-meta {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-3);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-gray-200);
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    .meta-item:last-child {
+      border-bottom: none;
+    }
+
+    .meta-label {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-gray-700);
+    }
+
+    .meta-value {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-900);
+      font-weight: 500;
+    }
+
+    /* ========================================
+       RESPONSIVE BREAKPOINTS
+       ======================================== */
+    @media (max-width: 768px) {
+      .main-container {
+        padding: var(--space-3) var(--space-2);
+      }
+
+      .pathway-header {
+        padding: var(--space-3);
+      }
+
+      .pathway-title {
+        font-size: var(--font-size-xl);
+      }
+
+      .card {
+        padding: var(--space-3);
+      }
+
+      .upload-zone {
+        padding: var(--space-4) var(--space-3);
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    /* ========================================
+       UTILITY CLASSES
+       ======================================== */
+    .text-center {
+      text-align: center;
+    }
+
+    .mb-0 { margin-bottom: 0; }
+    .mb-1 { margin-bottom: var(--space-1); }
+    .mb-2 { margin-bottom: var(--space-2); }
+    .mb-3 { margin-bottom: var(--space-3); }
+    .mb-4 { margin-bottom: var(--space-4); }
+
+    .mt-0 { margin-top: 0; }
+    .mt-1 { margin-top: var(--space-1); }
+    .mt-2 { margin-top: var(--space-2); }
+    .mt-3 { margin-top: var(--space-3); }
+    .mt-4 { margin-top: var(--space-4); }
+  </style>
+</head>
+<body>
+  <!-- Skip to main content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header with logo and breadcrumb -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/" class="logo-link">
+        <img src="/logo.svg" alt="Mentora logo" class="logo">
+        <span class="logo-text">Mentora</span>
+      </a>
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/pathways">Pathways</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Software Engineering Pathfinder</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content" class="main-container">
+    <!-- Pathway header with progress -->
+    <section class="pathway-header">
+      <h1 class="pathway-title">Software Engineering Pathfinder</h1>
+      <p class="step-title">Debugging Project — Reproduce & Patch</p>
+
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Step 1 of 3</span>
+          <span class="progress-percentage">33% Complete</span>
+        </div>
+
+        <!-- Progress bar with ARIA attributes -->
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuenow="33"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-label="Pathway progress: 33 percent complete, step 1 of 3"
+        >
+          <div class="progress-segment active"></div>
+          <div class="progress-segment"></div>
+          <div class="progress-segment"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two-column layout: main content + sidebar -->
+    <div class="content-grid">
+      <!-- LEFT COLUMN: Primary task flow -->
+      <div class="main-content">
+        <!-- Task Overview Card -->
+        <article class="card">
+          <header class="card-header">
+            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <h2 class="card-title">Task Overview</h2>
+          </header>
+
+          <p class="card-description">
+            Follow the instructions below to upload your debugging work. Your submission will be reviewed by a Pathfinder engineer who will provide detailed feedback on your debugging process.
+          </p>
+
+          <div class="card-description">
+            <strong style="color: var(--color-navy); display: block; margin-bottom: var(--space-2);">Acceptance Criteria:</strong>
+            <ul class="checklist">
+              <li class="checklist-item">
+                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="checklist-text">Reproduce the reported bug and document reproduction steps</span>
+              </li>
+              <li class="checklist-item">
+                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="checklist-text">Identify the root cause with supporting evidence</span>
+              </li>
+              <li class="checklist-item">
+                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="checklist-text">Implement and test a working patch or workaround</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- File Upload Card -->
+        <article class="card">
+          <header class="card-header">
+            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+            </svg>
+            <h2 class="card-title">Upload Your Files</h2>
+          </header>
+
+          <!-- Drag and drop zone -->
+          <div
+            class="upload-zone"
+            id="uploadZone"
+            role="button"
+            tabindex="0"
+            aria-label="File upload area. Drag and drop files here or click to browse."
+          >
+            <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+            </svg>
+
+            <p class="upload-text">Drop your .zip, .java, .py, or other project files</p>
+            <p class="upload-subtext">
+              OR <span class="upload-link" id="browseLink">click to browse files</span> from your computer
+            </p>
+            <p class="upload-subtext" style="margin-top: var(--space-1); font-size: var(--font-size-xs);">
+              Supported: ZIP, PDF, Java, Python, JavaScript, MP4 — Max 50MB per file
+            </p>
+
+            <input
+              type="file"
+              id="fileInput"
+              class="upload-input"
+              multiple
+              accept=".zip,.pdf,.java,.py,.js,.mp4,.png,.jpg,.jpeg"
+              aria-describedby="fileInputHelp"
+            >
+          </div>
+
+          <!-- File list (populated by JavaScript) -->
+          <div id="fileList" class="file-list" aria-live="polite" aria-atomic="false"></div>
+
+          <!-- URL Input -->
+          <div class="form-group mt-4">
+            <label for="urlInput" class="form-label">
+              Or add a GitHub/GitLab repository URL
+            </label>
+            <input
+              type="url"
+              id="urlInput"
+              class="form-input"
+              placeholder="https://github.com/username/repo"
+              aria-describedby="urlHelp"
+            >
+            <p id="urlHelp" class="form-help">Link to your repository or deployment</p>
+            <p id="urlError" class="form-error" role="alert" style="display: none;"></p>
+          </div>
+
+          <!-- Additional Context -->
+          <div class="form-group">
+            <label for="contextInput" class="form-label">
+              Additional Context
+            </label>
+            <textarea
+              id="contextInput"
+              class="form-textarea"
+              placeholder="Describe your debugging approach, challenges faced, or key learnings..."
+              aria-describedby="contextHelp"
+            ></textarea>
+            <p id="contextHelp" class="form-help">Optional: Share your thought process and approach</p>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="button-group mt-4">
+            <button type="button" id="submitButton" class="button button-primary" disabled>
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              Submit for Review
+            </button>
+            <button type="button" class="button button-secondary">
+              Save Draft
+            </button>
+          </div>
+        </article>
+
+        <!-- Review Process Card -->
+        <article class="card">
+          <header class="card-header">
+            <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h2 class="card-title">Review Process</h2>
+          </header>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <h3 class="timeline-title">Submit Files</h3>
+                <p class="timeline-description">Upload your work to begin the review process</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <h3 class="timeline-title">Automated Checks</h3>
+                <p class="timeline-description">Basic validation and project structure scan (instant)</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <h3 class="timeline-title">Human Review</h3>
+                <p class="timeline-description">A Pathfinder engineer evaluates your debugging process (24-48 hours)</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <h3 class="timeline-title">Feedback Delivered</h3>
+                <p class="timeline-description">Receive actionable notes and next steps via email</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- RIGHT COLUMN: Sidebar with meta info -->
+      <aside class="sidebar">
+        <!-- Why This Matters Card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            Why This Matters
+          </h3>
+          <p class="sidebar-content">
+            Improve your real debugging ability and learn how engineers track down failures in real systems.
+          </p>
+        </div>
+
+        <!-- What You'll Gain Card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            What You'll Gain
+          </h3>
+          <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+              <svg class="sidebar-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Deeper understanding of bug reproduction
+            </li>
+            <li class="sidebar-list-item">
+              <svg class="sidebar-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Pattern recognition for common failure modes
+            </li>
+            <li class="sidebar-list-item">
+              <svg class="sidebar-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Industry-grade patching techniques
+            </li>
+            <li class="sidebar-list-item">
+              <svg class="sidebar-list-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Stronger engineering communication habits
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pro Tip Card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+            Pro Tip
+          </h3>
+          <p class="sidebar-content">
+            Upload early — feedback loops help you improve faster. Don't wait for perfect; ship and iterate.
+          </p>
+        </div>
+
+        <!-- Submission Meta Card -->
+        <div class="sidebar-meta">
+          <div class="meta-item">
+            <span class="meta-label">Due Date</span>
+            <span class="meta-value">Dec 15, 2024</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Mentor</span>
+            <span class="meta-value">Sarah Chen</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Progress</span>
+            <span class="meta-value">Step 1 of 3</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Screen reader announcements -->
+  <div id="announcements" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    // ========================================
+    // FILE UPLOAD FUNCTIONALITY
+    // ========================================
+    (function() {
+      'use strict';
+
+      // DOM elements
+      const uploadZone = document.getElementById('uploadZone');
+      const fileInput = document.getElementById('fileInput');
+      const browseLink = document.getElementById('browseLink');
+      const fileList = document.getElementById('fileList');
+      const urlInput = document.getElementById('urlInput');
+      const urlError = document.getElementById('urlError');
+      const submitButton = document.getElementById('submitButton');
+      const announcements = document.getElementById('announcements');
+
+      // Store uploaded files
+      let uploadedFiles = [];
+
+      // Open file picker when clicking browse link or upload zone
+      browseLink.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fileInput.click();
+      });
+
+      uploadZone.addEventListener('click', () => {
+        fileInput.click();
+      });
+
+      // Keyboard accessibility for upload zone
+      uploadZone.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fileInput.click();
+        }
+      });
+
+      // Handle file selection
+      fileInput.addEventListener('change', (e) => {
+        handleFiles(e.target.files);
+      });
+
+      // Drag and drop handlers
+      uploadZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadZone.classList.add('dragover');
+      });
+
+      uploadZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove('dragover');
+      });
+
+      uploadZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove('dragover');
+        handleFiles(e.dataTransfer.files);
+      });
+
+      // Process uploaded files
+      function handleFiles(files) {
+        const maxSize = 50 * 1024 * 1024; // 50MB
+        const allowedTypes = ['.zip', '.pdf', '.java', '.py', '.js', '.mp4', '.png', '.jpg', '.jpeg'];
+
+        Array.from(files).forEach(file => {
+          // Validate file size
+          if (file.size > maxSize) {
+            announce(`File ${file.name} is too large. Maximum size is 50MB.`);
+            return;
+          }
+
+          // Validate file type
+          const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+          if (!allowedTypes.includes(fileExtension)) {
+            announce(`File type ${fileExtension} is not supported.`);
+            return;
+          }
+
+          // Add to uploaded files
+          uploadedFiles.push({
+            name: file.name,
+            size: file.size,
+            file: file
+          });
+
+          announce(`File ${file.name} added successfully.`);
+        });
+
+        renderFileList();
+        checkSubmitEnabled();
+      }
+
+      // Render file list
+      function renderFileList() {
+        if (uploadedFiles.length === 0) {
+          fileList.innerHTML = '';
+          return;
+        }
+
+        fileList.innerHTML = uploadedFiles.map((file, index) => `
+          <div class="file-item">
+            <svg class="file-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <div class="file-info">
+              <div class="file-name">${file.name}</div>
+              <div class="file-size">${formatFileSize(file.size)}</div>
+            </div>
+            <button
+              type="button"
+              class="file-remove"
+              onclick="removeFile(${index})"
+              aria-label="Remove ${file.name}"
+            >
+              Remove
+            </button>
+          </div>
+        `).join('');
+      }
+
+      // Remove file from list
+      window.removeFile = function(index) {
+        const fileName = uploadedFiles[index].name;
+        uploadedFiles.splice(index, 1);
+        renderFileList();
+        checkSubmitEnabled();
+        announce(`File ${fileName} removed.`);
+      };
+
+      // Format file size
+      function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+      }
+
+      // URL validation
+      urlInput.addEventListener('input', () => {
+        const url = urlInput.value.trim();
+
+        if (url === '') {
+          urlInput.classList.remove('input-valid', 'input-invalid');
+          urlError.style.display = 'none';
+          checkSubmitEnabled();
+          return;
+        }
+
+        // Basic URL validation
+        const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+
+        if (urlPattern.test(url)) {
+          urlInput.classList.remove('input-invalid');
+          urlInput.classList.add('input-valid');
+          urlError.style.display = 'none';
+        } else {
+          urlInput.classList.remove('input-valid');
+          urlInput.classList.add('input-invalid');
+          urlError.textContent = 'Please enter a valid URL';
+          urlError.style.display = 'block';
+        }
+
+        checkSubmitEnabled();
+      });
+
+      // Check if submit button should be enabled
+      function checkSubmitEnabled() {
+        const hasFiles = uploadedFiles.length > 0;
+        const hasValidUrl = urlInput.value.trim() !== '' && urlInput.classList.contains('input-valid');
+
+        submitButton.disabled = !(hasFiles || hasValidUrl);
+      }
+
+      // Announce to screen readers
+      function announce(message) {
+        announcements.textContent = message;
+
+        // Clear after a delay
+        setTimeout(() => {
+          announcements.textContent = '';
+        }, 3000);
+      }
+
+      // Submit button handler (placeholder)
+      submitButton.addEventListener('click', () => {
+        if (uploadedFiles.length === 0 && urlInput.value.trim() === '') {
+          announce('Please upload files or provide a URL before submitting.');
+          return;
+        }
+
+        announce('Submission sent for review. You will receive feedback within 24-48 hours.');
+        console.log('Submission:', {
+          files: uploadedFiles,
+          url: urlInput.value,
+          context: document.getElementById('contextInput').value
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
