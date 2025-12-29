@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
 
 export default function MainLayout({ children }) {
   return (
@@ -15,7 +14,6 @@ export default function MainLayout({ children }) {
       >
         {children}
       </motion.main>
-      <Footer />
     </div>
   );
 }

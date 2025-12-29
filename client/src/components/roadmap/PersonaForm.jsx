@@ -9,7 +9,7 @@ const strengthOptions = ['communication', 'systems thinking', 'creative problem 
 export default function PersonaForm({ onSubmit, loading }) {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
-    name: 'Ari Mentor',
+    name: 'John Student',
     gradeLevel: 11,
     passions: ['software', 'design'],
     strengths: ['creative problem solving', 'communication'],

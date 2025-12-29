@@ -11,7 +11,7 @@ export default function PodFeed({ feed }) {
         <p className="text-sm font-medium text-mentora-text-on-light mb-2">
           No activity yet
         </p>
-        <p className="text-xs text-mentora-text-on-light/70">
+        <p className="text-xs text-mentora-text-on-light opacity-70">
           Be the first to share something with your pod!
         </p>
       </div>

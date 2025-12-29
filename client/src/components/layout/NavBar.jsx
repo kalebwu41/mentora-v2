@@ -21,7 +21,7 @@ export default function NavBar() {
   return (
     <header className="sticky top-0 z-30 w-full bg-white border-b border-gray-200">
       <div className="h-auto flex w-full items-center justify-between py-4 px-6">
-        <Link to="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-[#0A1628] hover:opacity-80 transition">
+        <Link to="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-mentora-primary hover:opacity-80 transition">
           <motion.img
             src={mentoraLogo}
             alt="Mentora logo"
@@ -29,7 +29,7 @@ export default function NavBar() {
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
           />
-          <span className="text-xl font-bold text-[#0A1628]">MENTORA</span>
+          <span className="text-xl font-bold text-mentora-primary">MENTORA</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -38,7 +38,7 @@ export default function NavBar() {
               key={href}
               to={href}
               className={({ isActive }) =>
-                `text-sm font-bold transition-colors relative ${isActive ? 'text-[#1E5EFF]' : 'text-[#0A1628]/70 hover:text-[#0A1628]'}`
+                `text-sm font-bold transition-colors relative ${isActive ? 'text-mentora-accent' : 'text-mentora-text-dark hover:text-mentora-primary'}`
               }
             >
               {({ isActive }) => (
@@ -49,7 +49,7 @@ export default function NavBar() {
                   {label}
                   {isActive && (
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-[#1E5EFF] rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-mentora-accent rounded-full"
                       layoutId="activeNav"
                       transition={{ type: 'spring', stiffness: 400, damping: 60 }}
                     />
@@ -61,19 +61,22 @@ export default function NavBar() {
           <motion.div whileHover={MOTION.hover.lift} whileTap={{ scale: 0.95 }}>
             <Link
               to="/profile"
-              className="rounded-full bg-[#1E5EFF] px-6 py-2.5 text-sm font-bold text-white shadow-lg hover:shadow-xl hover:bg-[#3B72FF] transition"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-mentora-text-dark hover:bg-gray-100 transition border border-gray-200"
             >
-              Launch Profile
+              <div className="w-8 h-8 rounded-full bg-mentora-accent flex items-center justify-center">
+                <span className="text-xs font-bold text-white">JS</span>
+              </div>
+              <span className="text-sm">My Account</span>
             </Link>
           </motion.div>
         </nav>
 
         <button
-          className="rounded-xl border border-[#0A1628]/20 p-2 md:hidden hover:bg-[#0A1628]/5 transition"
+          className="rounded-xl border border-mentora-primary/20 p-2 md:hidden hover:bg-mentora-primary/5 transition"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={18} className="text-[#0A1628]" /> : <Menu size={18} className="text-[#0A1628]" />}
+          {open ? <X size={18} className="text-mentora-primary" /> : <Menu size={18} className="text-mentora-primary" />}
         </button>
       </div>
 
@@ -97,7 +100,7 @@ export default function NavBar() {
                   <Link
                     to={href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-4 py-3 text-sm font-bold text-[#0A1628] hover:bg-gray-100 transition"
+                    className="block rounded-xl px-4 py-3 text-sm font-bold text-mentora-text-dark hover:bg-gray-100 transition"
                   >
                     {label}
                   </Link>
@@ -112,9 +115,12 @@ export default function NavBar() {
                 <Link
                   to="/profile"
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl bg-[#1E5EFF] px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#3B72FF] transition"
+                  className="flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold text-mentora-text-dark hover:bg-gray-100 transition border border-gray-200"
                 >
-                  Launch Profile
+                  <div className="w-8 h-8 rounded-full bg-mentora-accent flex items-center justify-center">
+                    <span className="text-xs font-bold text-white">JS</span>
+                  </div>
+                  My Account
                 </Link>
               </motion.div>
             </div>

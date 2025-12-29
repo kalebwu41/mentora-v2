@@ -9,7 +9,7 @@ export default function CTA() {
     <section ref={ref} className="w-full py-32 relative overflow-hidden bg-gradient-hero">
       {/* Radial gradient accent at top */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(91,155,213,0.08)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.1)_0%,transparent_50%)]" />
       </div>
 
       {/* Vignette effect */}
@@ -25,7 +25,7 @@ export default function CTA() {
           <h2 className="text-5xl md:text-[56px] font-bold text-mentora-text mb-6 leading-[1.15] tracking-tight">
             Ready to Build Your Career Blueprint?
           </h2>
-          <p className="text-xl md:text-[22px] text-mentora-text/80 mb-12 font-medium leading-relaxed">
+          <p className="text-xl md:text-[22px] text-mentora-text-secondary mb-12 font-medium leading-relaxed">
             Join students from leading universities who are already shipping work and growing faster with Mentora.
           </p>
 
@@ -38,7 +38,7 @@ export default function CTA() {
             >
               <Link
                 to="/roadmap"
-                className="inline-flex items-center gap-2 px-10 py-4 text-[16px] font-semibold rounded-xl bg-mentora-accent text-mentora-primary hover:bg-mentora-accent-bright transition-all duration-200 shadow-button hover:shadow-button-hover"
+                className="inline-flex items-center gap-2 px-10 py-4 text-[16px] font-semibold rounded-xl bg-mentora-accent text-white hover:bg-mentora-accent-bright transition-all duration-200 shadow-button hover:shadow-button-hover"
               >
                 Get Started Now
                 <span className="text-lg">→</span>
@@ -61,7 +61,7 @@ export default function CTA() {
             </motion.div>
           </div>
 
-          <p className="text-lg text-mentora-text/60 font-medium">
+          <p className="text-lg text-mentora-text-secondary font-medium">
             ✨ No credit card required. Free to explore.
           </p>
         </motion.div>

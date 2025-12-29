@@ -35,9 +35,9 @@ export default function TestimonialBubbles() {
                 <div className="flex items-start gap-3">
                   <div className="text-3xl">{testimonial.avatar}</div>
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-mentora-primary">{testimonial.name}</p>
-                    <p className="text-xs text-mentora-muted">{testimonial.role}</p>
-                    <p className="text-xs mt-2 text-mentora-muted leading-relaxed">{testimonial.quote}</p>
+                    <p className="text-sm font-semibold text-mentora-text-dark">{testimonial.name}</p>
+                    <p className="text-xs text-mentora-text-on-light">{testimonial.role}</p>
+                    <p className="text-xs mt-2 text-mentora-text-on-light leading-relaxed">{testimonial.quote}</p>
                   </div>
                 </div>
               </div>

@@ -22,10 +22,10 @@ export default function Pathaways() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[320px,_1fr]">
+    <div className="grid gap-6 lg:grid-cols-[320px,_1fr] px-6 py-8">
       <aside className="space-y-4">
         <SectionTitle>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">Pathways</h2>
+          <h2 className="text-3xl font-bold text-white pl-20">Pathways</h2>
         </SectionTitle>
         <StaggerContainer delay={0.08}>
           {pathawayCatalog.map((pathway) => (

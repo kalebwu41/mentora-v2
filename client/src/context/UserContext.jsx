@@ -4,7 +4,7 @@ const UserContext = createContext(null);
 
 const defaultUser = {
   id: 'student-101',
-  name: 'Ari Mentor',
+  name: 'John Student',
   gradeLevel: 11,
   passions: ['software', 'design', 'storytelling'],
   strengths: ['creative problem solving', 'communication'],

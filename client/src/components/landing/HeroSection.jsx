@@ -13,7 +13,7 @@ export default function HeroSection() {
 
       {/* Radial gradient spotlight */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(91,155,213,0.08)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1)_0%,transparent_60%)]" />
       </div>
 
       {/* Content */}
