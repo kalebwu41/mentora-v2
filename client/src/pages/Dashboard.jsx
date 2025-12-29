@@ -25,15 +25,16 @@ import { skillConstellation, taskQueue, podActivityPeek } from '../data/skills.j
 import { generateUpcomingTasks } from '../utils/scoring.js';
 import mentoraLogo from '../assets/mentora-logo.svg';
 
-// Professional Blue Color Palette
+// Use Tailwind theme colors for consistency
+// These map to our mentora color palette
 const colors = {
-  headerBlue: '#2D3E50',
-  actionBlue: '#1E5EB8',
-  bodyBlue: '#4A6FA5',
-  lightBlueBg: '#F0F7FF',
-  greyBg: '#F9F9F9',
+  headerBlue: '#1A2B4F',      // mentora-primary
+  actionBlue: '#3B82F6',      // mentora-accent
+  bodyBlue: '#2E5C8A',        // mentora-primary-light
+  lightBlueBg: '#EFF6FF',     // light blue background
+  greyBg: '#F8FAFC',          // mentora-neutral-50
   white: '#FFFFFF',
-  borderGrey: '#E5E7EB',
+  borderGrey: '#E2E8F0',      // mentora-neutral-200
   softRed: '#FEE2E2',
   softRedText: '#DC2626',
   softYellow: '#FEF3C7',
@@ -42,92 +43,6 @@ const colors = {
   softGreenText: '#059669',
 };
 
-function Sidebar() {
-  const [activeTab, setActiveTab] = useState('dashboard');
-
-  const navigation = [
-    { id: 'dashboard', label: 'Dashboard', icon: Home },
-    { id: 'pathways', label: 'Pathways', icon: MapPin },
-    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-    { id: 'pods', label: 'My Pods', icon: Users },
-    { id: 'resources', label: 'Resources', icon: BookOpen },
-    { id: 'settings', label: 'Settings', icon: Settings },
-  ];
-
-  return (
-    <motion.aside
-      initial={{ x: -20, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="w-64 h-screen bg-white border-r border-gray-200 flex flex-col fixed left-0 top-0"
-      style={{ borderColor: colors.borderGrey }}
-    >
-      {/* Logo Section */}
-      <div className="p-6 border-b" style={{ borderColor: colors.borderGrey }}>
-        <Link to="/" className="flex items-center gap-3">
-          <img src={mentoraLogo} alt="Mentora Logo" className="h-10 w-10" />
-          <span className="text-2xl font-bold" style={{ color: colors.actionBlue }}>
-            Mentora
-          </span>
-        </Link>
-      </div>
-
-      {/* Navigation */}
-      <nav className="flex-1 p-4 space-y-2">
-        {navigation.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeTab === item.id;
-          return (
-            <motion.button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              whileHover={{ x: 4 }}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-semibold transition-all ${
-                isActive
-                  ? 'text-white shadow-md'
-                  : 'text-gray-600 hover:bg-gray-50'
-              }`}
-              style={{
-                backgroundColor: isActive ? colors.actionBlue : 'transparent',
-                color: isActive ? colors.white : colors.bodyBlue,
-              }}
-            >
-              <Icon className="w-5 h-5" />
-              <span>{item.label}</span>
-            </motion.button>
-          );
-        })}
-      </nav>
-
-      {/* User Section */}
-      <div className="p-4 border-t" style={{ borderColor: colors.borderGrey }}>
-        <div className="flex items-center gap-3 px-4 py-3 mb-2">
-          <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-            <span className="text-lg font-bold" style={{ color: colors.actionBlue }}>
-              JS
-            </span>
-          </div>
-          <div className="flex-1">
-            <p className="text-sm font-bold" style={{ color: colors.headerBlue }}>
-              John Student
-            </p>
-            <p className="text-xs" style={{ color: colors.bodyBlue }}>
-              CS Major
-            </p>
-          </div>
-        </div>
-        <motion.button
-          whileHover={{ x: 4 }}
-          className="w-full flex items-center gap-3 px-4 py-2 rounded-lg font-semibold hover:bg-gray-50 transition-all"
-          style={{ color: colors.bodyBlue }}
-        >
-          <LogOut className="w-4 h-4" />
-          <span className="text-sm">Log Out</span>
-        </motion.button>
-      </div>
-    </motion.aside>
-  );
-}
 
 function TaskBoard() {
   const [tasks, setTasks] = useState(generateUpcomingTasks(taskQueue));
@@ -413,24 +328,43 @@ function NotificationBanner() {
 export default function Dashboard() {
   return (
     <div className="flex min-h-screen" style={{ backgroundColor: colors.greyBg }}>
-      {/* Sidebar */}
-      <Sidebar />
-
       {/* Main Content */}
-      <div className="flex-1 ml-64">
+      <div className="flex-1">
         <div className="max-w-[1400px] mx-auto p-8">
-          {/* Header */}
+          {/* Header with Profile and Logout */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
+            className="mb-8 flex items-start justify-between"
           >
-            <h1 className="text-4xl font-extrabold mb-2" style={{ color: colors.headerBlue }}>
-              Welcome back, John
-            </h1>
-            <p className="text-lg" style={{ color: colors.bodyBlue }}>
-              Here's your career progress overview
-            </p>
+            <div>
+              <h1 className="text-4xl font-extrabold mb-2" style={{ color: colors.headerBlue }}>
+                Welcome back, John
+              </h1>
+              <p className="text-lg" style={{ color: colors.bodyBlue }}>
+                Here's your career progress overview
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold hover:bg-white transition-all border"
+                style={{ color: colors.bodyBlue, borderColor: colors.borderGrey }}
+              >
+                <Settings className="w-4 h-4" />
+                <span className="text-sm">Profile</span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold hover:bg-white transition-all border"
+                style={{ color: colors.bodyBlue, borderColor: colors.borderGrey }}
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="text-sm">Log Out</span>
+              </motion.button>
+            </div>
           </motion.div>
 
           {/* Notification Banner */}

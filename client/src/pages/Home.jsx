@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Compass } from 'lucide-react';
+import { ArrowRight, Sparkles, Compass, Info } from 'lucide-react';
 import StatCard from '../components/ui/StatCard.jsx';
 import Chip from '../components/ui/Chip.jsx';
 
@@ -27,6 +27,19 @@ const pillars = [
 export default function Home() {
   return (
     <div className="space-y-12">
+      {/* Disclaimer Banner */}
+      <div className="bg-mentora-accent/10 border-l-4 border-mentora-accent rounded-lg p-4 flex items-start gap-3">
+        <Info className="w-5 h-5 text-mentora-accent flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-semibold text-mentora-text-dark">
+            Demo Landing Page
+          </p>
+          <p className="text-sm text-mentora-text-on-light">
+            This is a preview landing page. Full functionality is currently under development.
+          </p>
+        </div>
+      </div>
+
       <section className="grid gap-10 lg:grid-cols-2 section">
         <div className="space-y-6">
           <Chip label="Built for modern EdTech" icon="✨" tone="sand" />
@@ -49,19 +62,19 @@ export default function Home() {
           </div>
         </div>
         <div className="grid gap-4">
-          <div className="glass-panel rounded-3xl p-6 bg-[var(--surface)] border border-[var(--accent)]/20">
+          <div className="glass-panel rounded-3xl p-6 bg-white border border-[var(--accent)]/20">
             <p className="text-sm font-semibold text-[var(--accent)]">Live Pulse</p>
-            <p className="mt-1 text-2xl font-semibold text-[var(--text-primary)]">Mentora coaches flowing from Pods → Pathaways.</p>
+            <p className="mt-1 text-2xl font-semibold text-mentora-text-dark">Mentora coaches flowing from Pods → Pathaways.</p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {heroStats.map((stat) => (
                 <StatCard key={stat.title} {...stat} />
               ))}
             </div>
           </div>
-          <div className="glass-panel flex flex-wrap items-center justify-between gap-4 rounded-3xl p-6 bg-[var(--surface)] border border-[var(--accent)]/20">
+          <div className="glass-panel flex flex-wrap items-center justify-between gap-4 rounded-3xl p-6 bg-white border border-[var(--accent)]/20">
             <div>
               <p className="text-sm font-semibold text-[var(--accent)]">Trusted by ambitious schools</p>
-              <p className="text-lg font-semibold text-[var(--text-primary)]">"Mentora feels like a chief-of-staff for every student."</p>
+              <p className="text-lg font-semibold text-mentora-text-dark">"Mentora feels like a chief-of-staff for every student."</p>
             </div>
             <Sparkles className="text-[var(--accent)]" size={36} />
           </div>
@@ -70,9 +83,9 @@ export default function Home() {
 
       <section className="grid gap-6 md:grid-cols-3">
         {pillars.map((pillar) => (
-          <div key={pillar.title} className="glass-panel h-full rounded-3xl p-6 bg-[var(--surface)] border border-[var(--accent)]/20">
+          <div key={pillar.title} className="glass-panel h-full rounded-3xl p-6 bg-white border border-[var(--accent)]/20">
             <p className="text-xs uppercase tracking-wide text-[var(--accent)]">{pillar.title}</p>
-            <p className="mt-2 text-sm text-[var(--text-secondary)]">{pillar.body}</p>
+            <p className="mt-2 text-sm text-mentora-text-on-light">{pillar.body}</p>
           </div>
         ))}
       </section>
