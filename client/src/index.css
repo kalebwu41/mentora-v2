@@ -5,24 +5,41 @@
 @tailwind utilities;
 
 :root {
-  /* Mentora Color Palette - Accessible Dark Theme */
-  --primary: #0A1628; /* deep navy - now used for backgrounds */
-  --background: #0A1628; /* deep navy primary background */
-  --surface: #0A1628;
-  --text-primary: #F2F6FC; /* nearly-white with blue tone for perfect contrast (WCAG AA+) */
-  --text-secondary: #A9B9D9; /* desaturated light blue for subheaders/paragraphs */
-  --accent: #1E5EFF; /* Mentora blue button color */
-  --accent-hover: #3B72FF; /* lighter hover state */
-  
+  /* Mentora Color Palette - Modern Blue Theme */
+  --primary: #1A2B4F; /* Rich navy background */
+  --primary-dark: #0B1D3E; /* Deep navy for depth */
+  --primary-light: #2E5C8A; /* Lighter navy accent */
+  --background: #1A2B4F; /* Main background color */
+  --surface: #1A2B4F; /* Card/surface background */
+  --surface-elevated: rgba(255, 255, 255, 0.03); /* Subtle elevated surfaces */
+
+  /* Text colors (WCAG AA+ compliant) */
+  --text-primary: #FFFFFF; /* Pure white for maximum contrast */
+  --text-secondary: #E2E8F0; /* Light slate for secondary text */
+  --text-muted: #94A3B8; /* Muted slate for tertiary text */
+
+  /* Accent colors - Modern vibrant blue */
+  --accent: #3B82F6; /* Primary blue (Tailwind blue-500) */
+  --accent-hover: #60A5FA; /* Lighter hover state (blue-400) */
+  --accent-dark: #2563EB; /* Deeper variant (blue-600) */
+  --accent-glow: rgba(59, 130, 246, 0.25); /* Glow effect */
+
+  /* Special accents */
+  --sky: #0EA5E9; /* Sky blue for highlights */
+  --indigo: #6366F1; /* Indigo for premium features */
+  --cyan: #06B6D4; /* Cyan for data/tech elements */
+
   /* Backwards compatibility aliases */
-  --text-dark: #F2F6FC;
-  --text-light: #A9B9D9;
-  
+  --text-dark: #FFFFFF;
+  --text-light: #E2E8F0;
+
   /* Spacing & sizing */
   --radius-lg: 20px;
+  --radius-xl: 24px;
   --section-vertical: 80px;
   --container-max: 1200px;
   --shadow-soft: 0 6px 18px rgba(0,0,0,0.3);
+  --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.2);
 }
 
 :root {
@@ -56,7 +73,7 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(closest-side, rgba(30,94,255,0.08), transparent 40%);
+  background: radial-gradient(closest-side, rgba(59, 130, 246, 0.1), transparent 40%);
   z-index: 1;
   pointer-events: none;
 }
@@ -102,8 +119,8 @@ input:hover, textarea:hover, select:hover {
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(30, 94, 255, 0.15);
-  background: rgba(30, 94, 255, 0.02);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: rgba(59, 130, 246, 0.02);
 }
 
 /* Layout utilities */
@@ -160,12 +177,12 @@ input:focus, textarea:focus, select:focus {
   transition: box-shadow 200ms ease, transform 150ms ease;
 }
 .card:hover {
-  box-shadow: 0 12px 32px rgba(30, 94, 255, 0.15);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
   transform: translateY(-4px);
 }
 .card:focus-within {
-  box-shadow: 0 4px 16px rgba(30, 94, 255, 0.2), 
-              0 0 0 3px rgba(30, 94, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2),
+              0 0 0 3px rgba(59, 130, 246, 0.12);
 }
 
 .glass-panel {
@@ -185,7 +202,7 @@ input:focus, textarea:focus, select:focus {
   padding: 6px 14px;
   font-weight: 600;
   font-size: 0.875rem;
-  background: rgba(30, 94, 255, 0.1);
+  background: rgba(59, 130, 246, 0.12);
   color: var(--accent);
 }
 
@@ -213,7 +230,7 @@ input:focus, textarea:focus, select:focus {
 }
 .btn:hover {
   background: var(--accent-hover);
-  box-shadow: 0 8px 24px rgba(30, 94, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
   transform: translateY(-2px);
 }
 .btn:focus {
@@ -231,7 +248,7 @@ input:focus, textarea:focus, select:focus {
   border-radius: 8px;
 }
 .btn-outline:hover {
-  background: rgba(30, 94, 255, 0.1);
+  background: rgba(59, 130, 246, 0.1);
   border-color: var(--accent-hover);
   color: var(--accent-hover);
 }
