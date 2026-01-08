@@ -20,27 +20,34 @@ export default function PathwayIndexCard({ pathway }) {
   return (
     <button
       onClick={handleClick}
-      className="text-left w-full rounded-2xl border bg-white px-6 py-5 shadow-sm hover:shadow-md transition-colors focus:outline-none"
+      className="text-left w-full rounded-xl border border-mentora-neutral-200 bg-white px-6 py-5 shadow-sm hover:shadow-md hover:border-mentora-accent/40 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mentora-accent/50 group"
       aria-label={`View ${pathway.title}`}
     >
       <div className="flex items-start gap-4">
-        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-50 border flex items-center justify-center text-gray-600">
-          <span className="text-sm font-semibold uppercase">{pathway.id.slice(0,3)}</span>
+        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-mentora-accent/10 flex items-center justify-center text-mentora-accent group-hover:bg-mentora-accent group-hover:text-white transition-all duration-200">
+          <span className="text-sm font-bold uppercase">{pathway.id.slice(0,3)}</span>
         </div>
 
-        <div className="flex-1">
-          <h3 className="text-base font-semibold text-gray-900">{pathway.title}</h3>
-          <p className="mt-1 text-sm text-gray-600">{truncateWords(pathway.mood, 14)}</p>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base font-bold text-mentora-text-dark group-hover:text-mentora-accent transition-colors duration-200 mb-2">
+            {pathway.title}
+          </h3>
+          <p className="text-sm text-mentora-text-on-light leading-relaxed line-clamp-2 mb-3">
+            {truncateWords(pathway.mood, 14)}
+          </p>
 
-          <div className="mt-3 flex items-center gap-4 text-sm text-gray-500">
-            <span>{commitment}</span>
-            <span className="mx-1">·</span>
-            <span>{difficulty}</span>
+          <div className="flex items-center gap-2 text-xs flex-wrap">
+            <span className="px-2.5 py-1 rounded-md bg-mentora-accent/10 text-mentora-accent font-medium whitespace-nowrap">
+              {commitment}
+            </span>
+            <span className="px-2.5 py-1 rounded-md bg-mentora-indigo/10 text-mentora-indigo font-medium whitespace-nowrap">
+              {difficulty}
+            </span>
           </div>
         </div>
 
-        <div className="flex items-center pl-4">
-          <span className="text-sm text-gray-400">View Pathway →</span>
+        <div className="flex items-center">
+          <span className="text-lg text-mentora-accent group-hover:translate-x-1 transition-transform duration-200">→</span>
         </div>
       </div>
     </button>

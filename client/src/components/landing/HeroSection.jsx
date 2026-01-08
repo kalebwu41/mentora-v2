@@ -100,9 +100,9 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="text-[16px] text-mentora-text-secondary font-medium pt-2"
+            className="text-[16px] text-mentora-accent font-bold tracking-wider pt-2"
           >
-            ✨ No credit card required
+            *** THIS IS JUST A LANDING PAGE WITH LIMITED FUNCTIONALITY ***
           </motion.p>
         </div>
 
