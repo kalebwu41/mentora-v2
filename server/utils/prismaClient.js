@@ -4,11 +4,19 @@
 // module is loaded.
 process.env.PRISMA_CLIENT_ENGINE_TYPE = process.env.PRISMA_CLIENT_ENGINE_TYPE || 'library';
 
-// Prefer the published package entrypoint; it wires the generated runtime options
-// and works regardless of where the client runtime files are located.
-const { PrismaClient } = require('@prisma/client');
+let PrismaClient
+try {
+	// Prefer the generated client inside the repository when available.
+	// This ensures the runtime is configured with the schema/config used during `prisma generate`.
+	const generated = require('../generated/prisma')
+	PrismaClient = generated.PrismaClient || generated.default?.PrismaClient || generated.default
+} catch (e) {
+	// Fallback to installed @prisma/client package if generated client isn't present.
+	const pkg = require('@prisma/client')
+	PrismaClient = pkg.PrismaClient || pkg.default?.PrismaClient || pkg.default
+}
 
 // Construct PrismaClient once and share across the server process.
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
-module.exports = prisma;
+module.exports = prisma

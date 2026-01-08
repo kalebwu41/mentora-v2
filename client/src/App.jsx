@@ -8,6 +8,8 @@ import Home from './pages/Home.jsx';
 import Roadmap from './pages/Roadmap.jsx';
 import Pathaways from './pages/Pathaways.jsx';
 import PathwayDetail from './pages/PathwayDetail.jsx';
+import Simulations from './pages/Simulations.jsx';
+import SimulationDetail from './pages/simulations/SimulationDetail.jsx';
 import Pods from './pages/Pods.jsx';
 import Chatbot from './pages/Chatbot.jsx';
 import Dashboard from './pages/Dashboard.jsx';
@@ -33,6 +35,8 @@ export default function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/roadmap" element={<Roadmap />} />
+              <Route path="/simulations" element={<Simulations />} />
+              <Route path="/simulations/:slug" element={<SimulationDetail />} />
             <Route path="/pathaways" element={<Pathaways />} />
             <Route path="/pathway/:id" element={<PathwayDetail />} />
             <Route path="/pods" element={<Pods />} />
