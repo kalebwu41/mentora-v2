@@ -8,7 +8,6 @@ import mentoraLogo from '../../assets/mentora-logo.svg';
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Roadmap', href: '/roadmap' },
-  { label: 'Simulations', href: '/simulations' },
   { label: 'Pathaways', href: '/pathaways' },
   { label: 'Pods', href: '/pods' },
   { label: 'Chatbot', href: '/chatbot' },
